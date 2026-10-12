@@ -113,7 +113,7 @@ test("video search, filters, delayed embed and original link", async ({
   await page.getByRole("textbox", { name: "영상 제목 검색" }).fill(" 프로");
   await expect(page.locator(".video-card")).toHaveCount(1);
   await page.getByRole("textbox", { name: "영상 제목 검색" }).fill("");
-  await expect(page.locator(".tabs button")).toHaveText(["예능배구", "전체", "기초 영상", "프로팀 경기"]);
+  await expect(page.locator(".tabs button")).toHaveText(["전체", "예능배구", "기초 영상", "프로팀 경기", "초등 배구"]);
   await expect(page.getByRole("button", { name: "전체", exact: true })).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByRole("button", { name: "우리 동호회", exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "프로팀 경기", exact: true }).click();
@@ -169,7 +169,7 @@ test("entertainment tabs, search, retained sources and mobile controls", async (
     await page.goto('/#/videos');
     await page.reload();
     await expect(page.locator('.video-card')).toHaveCount(74);
-    await expect(page.locator('.tabs button')).toHaveText(['예능배구', '전체', '기초 영상', '프로팀 경기']);
+    await expect(page.locator('.tabs button')).toHaveText(['전체', '예능배구', '기초 영상', '프로팀 경기', '초등 배구']);
     await expect(page.getByRole('button', {name: '전체', exact: true})).toHaveAttribute('aria-pressed', 'true');
     for (const b of await page.locator('.tabs button').all()) {
       const box=await b.boundingBox();
@@ -190,6 +190,11 @@ test("entertainment tabs, search, retained sources and mobile controls", async (
     await expect(page.locator('.video-card')).toHaveCount(54);
     await page.getByRole('button', {name: '프로팀 경기', exact: true}).click();
     await expect(page.locator('.video-card')).toHaveCount(10);
+    await page.getByRole('button', {name: '초등 배구', exact: true}).click();
+    await expect(page.locator('.video-card')).toHaveCount(0);
+    await expect(page.getByRole('heading', {name:'조건에 맞는 영상이 없어요'})).toBeVisible();
+    await page.getByRole('button', {name:'필터 초기화',exact:true}).click();
+    await expect(page.locator('.video-card')).toHaveCount(74);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
   }
   await page.goto('/#/video/entertainment-02');

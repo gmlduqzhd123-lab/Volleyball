@@ -1887,6 +1887,18 @@ select {
     padding: 10px 14px;
     font-size: 12px;
   }
+  .video-category-tabs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 4px;
+  }
+  .video-category-tabs button {
+    justify-content: center;
+    padding: 10px 3px;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
   .video-grid,
   .terms-grid,
   .skills-grid,

@@ -556,7 +556,7 @@ function Videos({
         </label>
       </div>
       {!pro && (
-        <div className="tabs" aria-label="영상 카테고리">
+        <div className="tabs video-category-tabs" aria-label="영상 카테고리">
           {videoCategoryTabs.map(
             ([id, name]) => (
               <button
