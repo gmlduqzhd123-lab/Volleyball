@@ -1,0 +1,192 @@
+[
+  {
+    "id": "entertainment-01",
+    "youtubeId": "O0olAriGuHE",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-01",
+    "checkedAt": "2026-10-12T12:44:50.244Z",
+    "before": {
+      "adShowing": false,
+      "duration": 549.941,
+      "paused": false,
+      "time": 20.820698
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 549.941,
+      "paused": false,
+      "time": 34.389962
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-02",
+    "youtubeId": "EL_dJjWAXBA",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-02",
+    "checkedAt": "2026-10-12T12:44:50.301Z",
+    "before": {
+      "adShowing": false,
+      "duration": 373.801,
+      "paused": false,
+      "time": 11.551938
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 373.801,
+      "paused": false,
+      "time": 25.312893
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-03",
+    "youtubeId": "9m7sKqbugkI",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-03",
+    "checkedAt": "2026-10-12T12:44:50.348Z",
+    "before": {
+      "adShowing": false,
+      "duration": 444.821,
+      "paused": false,
+      "time": 9.858077
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 444.821,
+      "paused": false,
+      "time": 23.804659
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-04",
+    "youtubeId": "UG6G3yJIW3M",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-04",
+    "checkedAt": "2026-10-12T12:45:42.841Z",
+    "before": {
+      "adShowing": false,
+      "duration": 1694.021,
+      "paused": false,
+      "time": 24.691989
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 1694.021,
+      "paused": false,
+      "time": 45.501928
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-05",
+    "youtubeId": "RSj126jnWl0",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-05",
+    "checkedAt": "2026-10-12T12:45:42.955Z",
+    "before": {
+      "adShowing": false,
+      "duration": 686.241,
+      "paused": false,
+      "time": 25.298227
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 686.241,
+      "paused": false,
+      "time": 46.288499
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-06",
+    "youtubeId": "A3Gyhmu0Oqs",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-06",
+    "checkedAt": "2026-10-12T12:45:43.011Z",
+    "before": {
+      "adShowing": false,
+      "duration": 835.501,
+      "paused": false,
+      "time": 24.763979
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 835.501,
+      "paused": false,
+      "time": 45.940189
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-07",
+    "youtubeId": "Ga9s3rPARrg",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-07",
+    "checkedAt": "2026-10-12T12:46:38.351Z",
+    "before": {
+      "adShowing": false,
+      "duration": 900.981,
+      "paused": false,
+      "time": 10.491881
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 900.981,
+      "paused": false,
+      "time": 30.643793
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-08",
+    "youtubeId": "h12U7Qfr5ZA",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-08",
+    "checkedAt": "2026-10-12T12:46:38.413Z",
+    "before": {
+      "adShowing": false,
+      "duration": 895.161,
+      "paused": false,
+      "time": 10.354187
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 895.161,
+      "paused": false,
+      "time": 30.598397
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-09",
+    "youtubeId": "HvgPx4_M67w",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-09",
+    "checkedAt": "2026-10-12T12:46:38.459Z",
+    "before": {
+      "adShowing": false,
+      "duration": 697.961,
+      "paused": false,
+      "time": 10.024283
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 697.961,
+      "paused": false,
+      "time": 30.431235
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-10",
+    "youtubeId": "hJEgaKubS0E",
+    "url": "http://127.0.0.1:5173/#/video/entertainment-10",
+    "checkedAt": "2026-10-12T12:47:57.408Z",
+    "before": {
+      "adShowing": false,
+      "duration": 895.161,
+      "paused": false,
+      "time": 40.934626
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 895.161,
+      "paused": false,
+      "time": 61.372409
+    },
+    "passed": true
+  }
+]

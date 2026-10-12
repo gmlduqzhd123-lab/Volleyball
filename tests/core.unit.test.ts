@@ -73,8 +73,27 @@ describe("metadata validation and filtering", () => {
   });
 });
 describe("learning data", () => {
+  it("entertainment sources are unique, recent, described and locally playable", () => {
+    const all=validateVideos(JSON.parse(readFileSync('public/data/videos.json','utf8')));
+    const videos=all.filter(v=>v.category==='entertainment');
+    const playback=JSON.parse(readFileSync('docs/entertainment-playback-local.json','utf8'));
+    expect(videos).toHaveLength(10);
+    expect(new Set(all.map(v=>v.youtubeId)).size).toBe(all.length);
+    for(const v of videos){
+      expect(v.uploadDate! >= '2023-10-12' && v.uploadDate! <= '2026-10-12').toBe(true);
+      expect(v.channel).toBe('원더독스 라커룸');
+      expect(v.summary!.length).toBeGreaterThan(40);
+      expect(v.date).toBe(v.uploadDate);
+      expect(parseYoutubeUrl(v.sourceUrl!)).toBe(v.youtubeId);
+      const r=playback.find((r:{id:string})=>r.id===v.id);
+      expect(r?.passed).toBe(true);
+      expect(r.youtubeId).toBe(v.youtubeId);
+      for(const state of [r.before,r.after]){expect(state.paused).toBe(false);expect(state.adShowing).toBe(false);}
+      expect(r.after.time).toBeGreaterThan(r.before.time+0.5);
+    }
+  });
   it("catalog has unique recent sources, descriptions, successful playback and complete skill links", () => {
-    const videos = validateVideos(JSON.parse(readFileSync("public/data/videos.json", "utf8")));
+    const videos = validateVideos(JSON.parse(readFileSync("public/data/videos.json", "utf8"))).filter(v => v.category !== "entertainment");
     const playback = JSON.parse(readFileSync("docs/video-playback-local.json", "utf8"));
     const livePlayback = JSON.parse(readFileSync("docs/video-playback-live.json", "utf8"));
     const skills = JSON.parse(readFileSync("public/data/skills.json", "utf8"));

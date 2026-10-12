@@ -7,3 +7,5 @@ test-results/
 research/
 artifacts/*video*.png
 artifacts/sharing*.png
+.codex-remote-attachments/
+artifacts/entertainment*.png

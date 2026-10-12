@@ -113,9 +113,14 @@ test("video search, filters, delayed embed and original link", async ({
   await page.getByRole("textbox", { name: "영상 제목 검색" }).fill(" 프로");
   await expect(page.locator(".video-card")).toHaveCount(1);
   await page.getByRole("textbox", { name: "영상 제목 검색" }).fill("");
-  await page.getByRole("button", { name: "우리 동호회", exact: true }).click();
+  await expect(page.locator(".tabs button")).toHaveText(["예능배구", "전체", "기초 영상", "프로팀 경기"]);
+  await expect(page.getByRole("button", { name: "전체", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: "우리 동호회", exact: true })).toHaveCount(0);
+  await page.getByRole("button", { name: "프로팀 경기", exact: true }).click();
   await expect(page.locator(".video-card")).toHaveCount(1);
-  await page.locator(".video-card").click();
+  await page.getByRole("button", { name: "전체", exact: true }).click();
+  await expect(page.locator(".video-card")).toHaveCount(2);
+  await page.locator(".video-card").filter({hasText: sample[0].title}).click();
   await expect(
     page.getByRole("heading", { name: sample[0].title, exact: true }),
   ).toBeVisible();
@@ -157,6 +162,47 @@ test("published catalog, technical links and upload/match dates", async ({ page 
   await expect(page.locator("main")).toContainText("업로드 2025-04-03");
   await expect(page.locator("main")).toContainText("경기 2025-04-02");
   await expect(page.locator(".video-detail-summary")).not.toBeEmpty();
+});
+test("entertainment tabs, search, retained sources and mobile controls", async ({ page }) => {
+  for (const width of [360, 390, 1440]) {
+    await page.setViewportSize({width, height: 844});
+    await page.goto('/#/videos');
+    await page.reload();
+    await expect(page.locator('.video-card')).toHaveCount(74);
+    await expect(page.locator('.tabs button')).toHaveText(['예능배구', '전체', '기초 영상', '프로팀 경기']);
+    await expect(page.getByRole('button', {name: '전체', exact: true})).toHaveAttribute('aria-pressed', 'true');
+    for (const b of await page.locator('.tabs button').all()) {
+      const box=await b.boundingBox();
+      expect(box!.x).toBeGreaterThanOrEqual(0);
+      expect(box!.x+box!.width).toBeLessThanOrEqual(width);
+      expect(box!.height).toBeGreaterThanOrEqual(44);
+    }
+    await page.getByRole('button', {name: '예능배구', exact: true}).click();
+    await expect(page.locator('.video-card')).toHaveCount(10);
+    await expect(page.locator('.video-card').first()).toContainText('원더독스 라커룸');
+    await expect(page.locator('.video-card').first()).toContainText('업로드');
+    await page.getByRole('textbox', {name: '영상 제목 검색'}).fill('인쿠시');
+    expect(await page.locator('.video-card').count()).toBeGreaterThan(0);
+    await page.getByRole('textbox', {name: '영상 제목 검색'}).fill('없는영상테스트');
+    await expect(page.locator('.video-card')).toHaveCount(0);
+    await page.getByRole('textbox', {name: '영상 제목 검색'}).fill('');
+    await page.getByRole('button', {name: '기초 영상', exact: true}).click();
+    await expect(page.locator('.video-card')).toHaveCount(54);
+    await page.getByRole('button', {name: '프로팀 경기', exact: true}).click();
+    await expect(page.locator('.video-card')).toHaveCount(10);
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+  }
+  await page.goto('/#/video/entertainment-02');
+  await expect(page.locator('main')).toContainText('업로드 2026-09-29');
+  await expect(page.locator('h1')).toContainText('20261011 방송');
+  expect(await page.locator('iframe').count()).toBe(0);
+  await expect(page.locator('.video-detail-summary')).not.toBeEmpty();
+  await page.getByRole('button',{name:/플레이어 열기/}).click();
+  await expect(page.locator('iframe')).toHaveAttribute('src', 'https://www.youtube-nocookie.com/embed/EL_dJjWAXBA?start=0');
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/#/videos');
+  await page.getByRole('button',{name:'예능배구',exact:true}).click();
+  await page.screenshot({path:'artifacts/entertainment-mobile.png',fullPage:false});
 });
 test("mobile 360px navigation, routes and no horizontal overflow", async ({
   page,

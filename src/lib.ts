@@ -3,7 +3,7 @@ export type Video = {
   youtubeId: string;
   title: string;
   date: string;
-  category: "club" | "skill" | "pro";
+  category: "club" | "skill" | "pro" | "entertainment";
   positionTags: string[];
   startSeconds: number;
   uploadDate?: string;
@@ -64,9 +64,17 @@ export const positionNames: Record<string, string> = {
 };
 export const categoryNames = {
   club: "우리 동호회",
-  skill: "기술 배우기",
-  pro: "프로 참고",
+  skill: "기초 영상",
+  pro: "프로팀 경기",
+  entertainment: "예능배구",
 };
+// Retain the club data category; its videos remain discoverable through All.
+export const videoCategoryTabs = [
+  ["entertainment", "예능배구"],
+  ["all", "전체"],
+  ["skill", "기초 영상"],
+  ["pro", "프로팀 경기"],
+] as const;
 export function parseYoutubeUrl(input: string): string | null {
   try {
     const url = new URL(input.trim());

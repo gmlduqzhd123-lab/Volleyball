@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import {
   categoryNames,
+  videoCategoryTabs,
   filterVideos,
   parseYoutubeUrl,
   positionNames,
@@ -556,7 +557,7 @@ function Videos({
       </div>
       {!pro && (
         <div className="tabs" aria-label="영상 카테고리">
-          {[["all", "전체"], ...Object.entries(categoryNames)].map(
+          {videoCategoryTabs.map(
             ([id, name]) => (
               <button
                 key={id}
