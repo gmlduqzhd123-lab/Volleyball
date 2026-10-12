@@ -2011,3 +2011,75 @@ select {
     scroll-behavior: auto !important;
   }
 }
+/* 📲 앱 설치 · 📱 QR: 헤더 오른쪽 맨 윗줄 (엽쌤 앱 공통) */
+.site-header nav {
+  margin-left: auto;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.app-chip {
+  display: inline-block;
+  line-height: 1.3;
+  white-space: nowrap;
+  border: 1px solid #cfdccd;
+  background: #fff;
+  color: var(--green);
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.app-chip:hover {
+  background: #f0f5ea;
+}
+.app-chip.install {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.hub-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 1080px) {
+  .header-actions .chip-wide {
+    display: none;
+  }
+  .app-chip {
+    padding: 7px 11px;
+  }
+}
+@media (max-width: 850px) {
+  .header-actions {
+    gap: 6px;
+  }
+}
+@media (max-width: 420px) {
+  .header-inner {
+    gap: 6px;
+    padding: 0 12px;
+  }
+  .brand {
+    font-size: 16px;
+    gap: 7px;
+  }
+  .brand-mark,
+  .brand-mark svg {
+    width: 32px;
+    height: 32px;
+  }
+  .menu-toggle {
+    width: 38px;
+  }
+  .brand small {
+    display: none;
+  }
+  .app-chip {
+    padding: 6px 9px;
+    font-size: 12px;
+  }
+}
