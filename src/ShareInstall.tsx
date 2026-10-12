@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import { Copy, Download, QrCode, Share2, Smartphone } from "lucide-react";
 
 export const PUBLIC_APP_URL = "https://gmlduqzhd123-lab.github.io/Volleyball/";
-interface InstallPrompt extends Event {
-  prompt(): Promise<void>;
-  userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
+declare global {
+  interface Window {
+    YSInstall?: {
+      install(): Promise<{ outcome: "accepted" | "dismissed" } | null>;
+      canPrompt(): boolean;
+      installed(): boolean;
+    };
+  }
 }
 function inApp() {
   return window.matchMedia("(display-mode: standalone)").matches ||
@@ -15,7 +20,7 @@ export default function ShareInstall() {
   const [qr, setQr] = useState("");
   const [expanded, setExpanded] = useState(false);
   const [message, setMessage] = useState("");
-  const [installEvent, setInstallEvent] = useState<InstallPrompt | null>(null);
+  const [canInstall, setCanInstall] = useState(() => Boolean(window.YSInstall?.canPrompt()));
   const [installed, setInstalled] = useState(inApp);
   const [installing, setInstalling] = useState(false);
   const [canShare] = useState(() => typeof navigator.share === "function");
@@ -32,20 +37,14 @@ export default function ShareInstall() {
   }, [expanded, qr]);
 
   useEffect(() => {
-    const capture = (event: Event) => {
-      event.preventDefault();
-      setInstallEvent(event as InstallPrompt);
+    const sync = () => {
+      setCanInstall(Boolean(window.YSInstall?.canPrompt()));
+      setInstalled(window.YSInstall?.installed() ?? inApp());
     };
-    const complete = () => { setInstalled(true); setInstallEvent(null); };
-    const mode = window.matchMedia("(display-mode: standalone)");
-    const modeChange = () => setInstalled(inApp());
-    window.addEventListener("beforeinstallprompt", capture);
-    window.addEventListener("appinstalled", complete);
-    mode.addEventListener("change", modeChange);
+    sync();
+    window.addEventListener("ys-install-change", sync);
     return () => {
-      window.removeEventListener("beforeinstallprompt", capture);
-      window.removeEventListener("appinstalled", complete);
-      mode.removeEventListener("change", modeChange);
+      window.removeEventListener("ys-install-change", sync);
     };
   }, []);
 
@@ -66,17 +65,16 @@ export default function ShareInstall() {
     }
   }
   async function install() {
-    if (!installEvent || installing) return;
-    const prompt = installEvent;
+    if (!canInstall || installing || !window.YSInstall) return;
     setInstalling(true);
     try {
-      await prompt.prompt();
-      const choice = await prompt.userChoice;
+      const choice = await window.YSInstall.install();
+      if (!choice) return;
       setMessage(choice.outcome === "accepted" ? "설치 요청을 수락했어요. 기기의 설치 완료를 기다려 주세요." : "설치를 취소했어요. 브라우저 메뉴에서도 설치할 수 있어요.");
     } catch {
       setMessage("설치 창을 열지 못했어요. 아래 설치 방법을 확인해 주세요.");
     } finally {
-      setInstallEvent(null);
+      setCanInstall(Boolean(window.YSInstall?.canPrompt()));
       setInstalling(false);
     }
   }
@@ -97,11 +95,11 @@ export default function ShareInstall() {
             <div className="share-actions">
               <button className="button secondary small" onClick={copyLink}><Copy size={16} /> 링크 복사</button>
               {canShare && <button className="button secondary small" onClick={share}><Share2 size={16} /> 기기로 공유</button>}
-              {!installed && installEvent && <button className="button small" disabled={installing} onClick={install}><Smartphone size={16} /> {installing ? "설치 창 여는 중…" : "앱 설치"}</button>}
+              {!installed && canInstall && <button className="button small" disabled={installing} onClick={install}><Smartphone size={16} /> {installing ? "설치 창 여는 중…" : "앱 설치"}</button>}
             </div>
             <label className="share-url">공개 사이트 주소<input readOnly value={PUBLIC_APP_URL} aria-label="공유 링크" onFocus={(event) => event.currentTarget.select()} /></label>
             <p className="share-status" role="status" aria-live="polite">{message}</p>
-            {installed ? <p className="installed-note">설치한 앱으로 이용 중이거나 앱 설치가 완료되었어요.</p> : <details className="install-help" open={!installEvent}>
+            {installed ? <p className="installed-note">설치한 앱으로 이용 중이거나 앱 설치가 완료되었어요.</p> : <details className="install-help" open={!canInstall}>
               <summary>홈 화면 · 데스크톱에 설치하는 방법</summary>
               <ul>
                 <li><b>아이폰·아이패드</b> Safari에서 사이트를 열고 공유 버튼 → ‘홈 화면에 추가’를 선택하세요. ‘웹 앱으로 열기’ 항목이 있으면 켜 주세요.</li>

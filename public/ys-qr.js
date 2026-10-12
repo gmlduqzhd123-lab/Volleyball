@@ -31,9 +31,13 @@
         return root.getAttribute('data-qr-name') || (m && m.content) || document.title;
     }
 
+    var closeActive = null;
     function open() {
+        if (closeActive) closeActive();
         injectCss();
         var last = document.activeElement;
+        var previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
         var url = appUrl();
         var back = document.createElement('div');
         back.className = 'yq-back';
@@ -51,9 +55,15 @@
         function close() {
             document.removeEventListener('keydown', onKey);
             back.remove();
+            document.body.style.overflow = previousOverflow;
+            closeActive = null;
             if (last && last.focus) last.focus();
         }
-        function onKey(e) { if (e.key === 'Escape') close(); }
+        function onKey(e) {
+            if (e.key === 'Escape') close();
+            if (e.key === 'Tab') { e.preventDefault(); back.querySelector('.yq-close').focus(); }
+        }
+        closeActive = close;
         back.addEventListener('click', function (e) { if (e.target === back || e.target.closest('.yq-close')) close(); });
         document.addEventListener('keydown', onKey);
         document.body.appendChild(back);

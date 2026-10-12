@@ -9,6 +9,7 @@
     if (window.YSInstall) return;
     var root = document.documentElement;
     var deferred = null;
+    var busy = false, completed = false;
     var ua = navigator.userAgent;
     var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     var isAndroid = /android/i.test(ua);
@@ -19,15 +20,19 @@
     var isIOSSafari = isIOS && /Safari/i.test(ua) && !/CriOS|FxiOS|EdgiOS|Whale|NAVER|DaumApps/i.test(ua) && !isInApp;
 
     function installed() {
-        return (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+        return completed || (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
     }
-    function refresh() { root.classList.toggle('can-install', !installed()); }
+    function refresh() {
+        root.classList.toggle('can-install', !installed());
+        window.dispatchEvent(new Event('ys-install-change'));
+    }
     refresh();
 
     window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; refresh(); });
     window.addEventListener('appinstalled', function () {
         deferred = null;
-        root.classList.remove('can-install');
+        completed = true;
+        refresh();
         close();
         toast('설치 완료! 홈 화면에서 바로 열 수 있어요 🎉');
     });
@@ -116,20 +121,31 @@
             '<p class="ysi-note">이미 설치했다면 바탕화면이나 시작 메뉴에서 열 수 있어요.</p>';
     }
 
-    var back = null, lastFocus = null;
+    var back = null, lastFocus = null, previousOverflow = '';
     function close() {
         if (!back) return;
         back.remove();
         back = null;
+        document.body.style.overflow = previousOverflow;
         document.removeEventListener('keydown', onKey, true);
         if (lastFocus && lastFocus.focus && document.contains(lastFocus)) lastFocus.focus();
     }
-    function onKey(e) { if (e.key === 'Escape') { e.stopPropagation(); close(); } }
+    function onKey(e) {
+        if (e.key === 'Escape') { e.stopPropagation(); close(); }
+        if (e.key === 'Tab' && back) {
+            var buttons = back.querySelectorAll('a[href],button');
+            var first = buttons[0], last = buttons[buttons.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    }
 
     function showGuide() {
         injectCss();
         close();
         lastFocus = document.activeElement;
+        previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
         var icon = appIcon();
         back = document.createElement('div');
         back.className = 'ysi-back';
@@ -159,15 +175,24 @@
         toastTimer = setTimeout(function () { t.hidden = true; }, 3000);
     }
 
-    function open() {
-        if (deferred) {
-            var ev = deferred;
-            deferred = null;
-            ev.prompt();
-            ev.userChoice.then(function (c) { if (c && c.outcome !== 'accepted') deferred = null; }, function () {});
-            return;
+    async function install() {
+        if (!deferred || busy || installed()) return null;
+        var ev = deferred;
+        deferred = null;
+        busy = true;
+        refresh();
+        try {
+            await ev.prompt();
+            return await ev.userChoice;
+        } finally {
+            busy = false;
+            refresh();
         }
-        showGuide();
+    }
+    async function open() {
+        if (busy || installed()) return;
+        if (!deferred) { showGuide(); return; }
+        try { await install(); } catch (_) { showGuide(); }
     }
 
     document.addEventListener('click', function (e) {
@@ -178,5 +203,6 @@
     });
 
     injectCss();
-    window.YSInstall = { open: open, canPrompt: function () { return !!deferred; }, installed: installed };
+    window.YSInstall = { open: open, install: install, canPrompt: function () { return !!deferred && !busy; }, installed: installed };
+    window.matchMedia('(display-mode: standalone)').addEventListener('change', refresh);
 })();
