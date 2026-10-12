@@ -363,7 +363,7 @@ select {
 .art-badge {
   position: absolute;
   right: 26px;
-  bottom: 43px;
+  top: 120px;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -379,6 +379,7 @@ select {
 }
 .art-star {
   position: absolute;
+  line-height: 1;
   color: #ff8255;
 }
 .star-one {
@@ -394,11 +395,11 @@ select {
 }
 .art-number {
   position: absolute;
-  bottom: 18px;
-  left: 35px;
+  bottom: 16px;
+  right: 35px;
   font-size: 8px;
   letter-spacing: 0.16em;
-  color: #f1f3d8;
+  color: #5b7654;
 }
 .values-strip {
   display: flex;
@@ -1700,7 +1701,7 @@ select {
     margin-top: 22px;
   }
   .hero-art {
-    min-height: 235px;
+    min-height: 280px;
     border-radius: 0;
     background: #dce6cc;
   }
@@ -1711,10 +1712,10 @@ select {
     left: calc(50% - 80px);
   }
   .art-court {
-    width: 86%;
-    height: 105%;
-    left: 8%;
-    bottom: -35%;
+    width: 100%;
+    height: 90%;
+    left: 0;
+    bottom: 0;
   }
   .art-label {
     top: 16px;
@@ -1730,7 +1731,7 @@ select {
   .star-one {
     font-size: 34px;
     right: 50px;
-    top: 65px;
+    top: 30px;
   }
   .star-two {
     font-size: 25px;
@@ -1738,15 +1739,18 @@ select {
     left: 40px;
   }
   .art-badge {
-    bottom: 20px;
+    top: 75px;
+    bottom: auto;
     right: 20px;
     transform: rotate(-5deg);
     padding: 9px 13px;
     font-size: 9px;
   }
   .art-number {
-    bottom: 17px;
+    top: 36px;
+    bottom: auto;
     left: 20px;
+    right: auto;
   }
   .values-strip {
     gap: 10px;

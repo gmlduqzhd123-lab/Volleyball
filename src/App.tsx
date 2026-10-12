@@ -151,7 +151,7 @@ function Ball({ className = "" }: { className?: string }) {
 function HeroArt() {
   return (
     <div className="hero-art" aria-hidden="true">
-      <span className="art-label">LET’S PLAY TOGETHER</span>
+      <span className="art-label">9-PLAYER VOLLEYBALL</span>
       <div className="art-orbit" />
       <svg className="art-court" viewBox="0 0 500 300">
         <path
@@ -161,7 +161,7 @@ function HeroArt() {
           strokeWidth="2"
         />
         <path
-          d="M103 145 L407 201 M150 72 L453 130 M65 204 L375 258 M175 38 L345 289"
+          d="M103 145 L407 201"
           stroke="#c8d8a5"
           strokeWidth="2"
         />
@@ -181,19 +181,25 @@ function HeroArt() {
           stroke="#bacbb0"
           strokeWidth="1"
         />
+        {[[142,177],[241,190],[340,203],[121,211],[220,224],[319,236],[100,245],[199,256],[298,266]].map(([x,y],i)=>(
+          <g key={i} className="home-nine-player">
+            <circle cx={x} cy={y} r="11" fill="#fff5d8" stroke="#183f35" strokeWidth="2" />
+            <circle cx={x} cy={y} r="3" fill="#ff966c" />
+          </g>
+        ))}
       </svg>
       <Ball className="hero-ball" />
       <div className="art-badge">
         <Trophy size={18} />
         <span>
-          오늘도 한 걸음,
+          아홉 명이 함께,
           <br />
-          <b>배구왕에 가까이!</b>
+          <b>오늘도 배구왕!</b>
         </span>
       </div>
       <span className="art-star star-one">✳</span>
       <span className="art-star star-two">✦</span>
-      <span className="art-number">01 / TEAM SPIRIT</span>
+      <span className="art-number">9 / ONE TEAM</span>
     </div>
   );
 }
@@ -297,7 +303,7 @@ function Home({
         <div className="hero-copy">
           <span className="pill">
             <span />
-            선생님들의 즐거운 배구 생활
+            선생님들의 9인제 배구 생활
           </span>
           <h1>
             처음이어도 괜찮아.
@@ -305,9 +311,9 @@ function Home({
             우리 모두 <span>배구왕!</span>
           </h1>
           <p>
-            함께 뛰는 즐거움, 하나씩 배우는 자신감.
+            아홉 명이 함께 뛰는 즐거움, 하나씩 배우는 자신감.
             <br />
-            우리의 경기부터 첫 패스까지, 여기서 시작해요.
+            9인제의 첫 패스부터 경기까지, 함께 배워요.
           </p>
           <div className="hero-actions">
             <LinkButton to="beginner">배구 처음 배우기</LinkButton>
@@ -325,7 +331,7 @@ function Home({
             <span>
               같이 배우면, 더 즐거우니까.
               <br />
-              <b>교사 배구 동호회를 위한 작은 교실</b>
+              <b>교사 배구 동호회를 위한 9인제 교실</b>
             </span>
           </div>
         </div>
@@ -361,7 +367,7 @@ function Home({
             <BookOpen size={30} />
             <h3>배구, 처음이라면</h3>
             <p>
-              낯선 용어와 규칙을
+              9인제 용어와 규칙을
               <br />
               쉽게 알아보는 왕초보 배구 교실
             </p>
@@ -377,7 +383,7 @@ function Home({
             <p>
               패스부터 스파이크까지
               <br />
-              코트에서 통하는 기초 기술
+              9인제 경기에 활용하는 기초 기술
             </p>
             <span className="card-link">
               기술 교실 가기
@@ -470,7 +476,7 @@ function Home({
         <div>
           <span className="eyebrow">A LITTLE CHALLENGE</span>
           <h2>배구왕까지, 열 문제!</h2>
-          <p>알쏭달쏭 배구 상식, 가볍게 확인해 볼까요?</p>
+          <p>9인제 기본 규칙, 열 문제로 가볍게 확인해 볼까요?</p>
         </div>
         <LinkButton to="quiz" secondary>
           퀴즈 도전하기
