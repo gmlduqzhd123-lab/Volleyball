@@ -76,6 +76,7 @@ describe("learning data", () => {
   it("catalog has unique recent sources, descriptions, successful playback and complete skill links", () => {
     const videos = validateVideos(JSON.parse(readFileSync("public/data/videos.json", "utf8")));
     const playback = JSON.parse(readFileSync("docs/video-playback-local.json", "utf8"));
+    const livePlayback = JSON.parse(readFileSync("docs/video-playback-live.json", "utf8"));
     const skills = JSON.parse(readFileSync("public/data/skills.json", "utf8"));
     expect(videos).toHaveLength(64);
     expect(new Set(videos.map(v => v.youtubeId)).size).toBe(videos.length);
@@ -85,6 +86,16 @@ describe("learning data", () => {
       expect(v.summary?.length).toBeGreaterThan(20);
       expect(parseYoutubeUrl(v.sourceUrl!)).toBe(v.youtubeId);
       expect(playback.find((r: {id:string; passed:boolean}) => r.id === v.id)?.passed).toBe(true);
+      for (const rows of [playback, livePlayback]) {
+        const record = rows.find((r: {id:string}) => r.id === v.id);
+        expect(record?.youtubeId).toBe(v.youtubeId);
+        expect(record?.passed).toBe(true);
+        expect(record.before.adShowing).toBe(false);
+        expect(record.after.adShowing).toBe(false);
+        expect(record.before.paused).toBe(false);
+        expect(record.after.paused).toBe(false);
+        expect(record.after.time).toBeGreaterThan(record.before.time + 0.5);
+      }
       if(v.category === "skill") expect(skills.filter((s: {videoIds:string[]}) => s.videoIds.includes(v.id))).toHaveLength(1);
     }
     for(const s of skills) for(const id of s.videoIds) expect(videos.some(v => v.id === id)).toBe(true);

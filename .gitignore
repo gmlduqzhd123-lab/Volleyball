@@ -5,3 +5,4 @@ test-results/
 *.local
 *.tsbuildinfo
 research/
+artifacts/*video*.png

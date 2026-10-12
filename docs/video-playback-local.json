@@ -2,1088 +2,1408 @@
   {
     "id": "underhand-01",
     "youtubeId": "a7o-VFpxiZA",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:08:57.442Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-01",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:47:32.875Z",
     "before": {
+      "adShowing": false,
       "duration": 45.081,
+      "ended": false,
       "paused": false,
-      "time": 0.067063
+      "time": 1.590281
     },
     "after": {
+      "adShowing": false,
       "duration": 45.081,
+      "ended": false,
       "paused": false,
-      "time": 24.638081
+      "time": 11.682225
     },
     "passed": true
   },
   {
     "id": "underhand-02",
     "youtubeId": "zdyvPM1bM04",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:08:57.566Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-02",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:47:32.911Z",
     "before": {
-      "duration": 103,
+      "adShowing": false,
+      "duration": 102.701,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.712531
     },
     "after": {
+      "adShowing": false,
       "duration": 102.701,
+      "ended": false,
       "paused": false,
-      "time": 23.085092
+      "time": 10.798105
     },
     "passed": true
   },
   {
     "id": "underhand-03",
     "youtubeId": "NJOHXIj8lbU",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:08:57.722Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-03",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:47:32.944Z",
     "before": {
-      "duration": 36,
+      "adShowing": false,
+      "duration": 36.361,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.310096
     },
     "after": {
+      "adShowing": false,
       "duration": 36.361,
+      "ended": false,
       "paused": false,
-      "time": 22.651367
+      "time": 10.367253
     },
     "passed": true
   },
   {
     "id": "underhand-04",
     "youtubeId": "lZzWmMhPDCQ",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:08:57.910Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-04",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:47:32.977Z",
     "before": {
+      "adShowing": false,
       "duration": 38,
+      "ended": false,
       "paused": false,
       "time": 0
     },
     "after": {
+      "adShowing": false,
       "duration": 38.461,
+      "ended": false,
       "paused": false,
-      "time": 21.060341
+      "time": 9.748057
     },
     "passed": true
   },
   {
     "id": "underhand-05",
     "youtubeId": "FCY8A6qEPKE",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:09:46.279Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-05",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:48:00.082Z",
     "before": {
-      "duration": 38,
+      "adShowing": false,
+      "duration": 38.161,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.638563
     },
     "after": {
+      "adShowing": false,
       "duration": 38.161,
+      "ended": false,
       "paused": false,
-      "time": 17.383148
+      "time": 20.252747
     },
     "passed": true
   },
   {
     "id": "underhand-06",
     "youtubeId": "0g31AAjBbxo",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:09:46.444Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-06",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:48:00.115Z",
     "before": {
-      "duration": 30,
+      "adShowing": false,
+      "duration": 30.181,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.117859
     },
     "after": {
+      "adShowing": false,
       "duration": 30.181,
+      "ended": false,
       "paused": false,
-      "time": 15.607628
+      "time": 18.727979
     },
     "passed": true
   },
   {
     "id": "underhand-07",
     "youtubeId": "oweOC03F5-Y",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:09:46.593Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-07",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:48:00.150Z",
     "before": {
-      "duration": 42,
+      "adShowing": false,
+      "duration": 41.581,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.30976
     },
     "after": {
+      "adShowing": false,
       "duration": 41.581,
+      "ended": false,
       "paused": false,
-      "time": 16.13058
+      "time": 18.904414
     },
     "passed": true
   },
   {
     "id": "underhand-08",
     "youtubeId": "JZRyHL1mQ88",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:09:46.749Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-08",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:48:00.184Z",
     "before": {
-      "duration": 40,
+      "adShowing": false,
+      "duration": 40.141,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.018603
     },
     "after": {
+      "adShowing": false,
       "duration": 40.141,
+      "ended": false,
       "paused": false,
-      "time": 16.202385
+      "time": 18.550298
     },
     "passed": true
   },
   {
     "id": "underhand-09",
     "youtubeId": "XjGcTf8ckyM",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:10:14.534Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-09",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:48:28.832Z",
     "before": {
-      "duration": 39,
+      "adShowing": false,
+      "duration": 38.601,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.613403
     },
     "after": {
+      "adShowing": false,
       "duration": 38.601,
+      "ended": false,
       "paused": false,
-      "time": 18.885073
+      "time": 21.732811
     },
     "passed": true
   },
   {
     "id": "underhand-10",
     "youtubeId": "txTQYs740kg",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:10:14.689Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/underhand-10",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:48:28.867Z",
     "before": {
-      "duration": 62,
+      "adShowing": false,
+      "duration": 62.361,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.524024
     },
     "after": {
+      "adShowing": false,
       "duration": 62.361,
+      "ended": false,
       "paused": false,
-      "time": 19.279727
+      "time": 20.641103
     },
     "passed": true
   },
   {
     "id": "overhand-01",
     "youtubeId": "13f3InWTjQw",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:10:14.821Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-01",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:48:28.902Z",
     "before": {
-      "duration": 100,
+      "adShowing": false,
+      "duration": 99.601,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.498147
     },
     "after": {
+      "adShowing": false,
       "duration": 99.601,
+      "ended": false,
       "paused": false,
-      "time": 18.826921
+      "time": 20.6132
     },
     "passed": true
   },
   {
     "id": "overhand-02",
     "youtubeId": "fk3FC2KuAnQ",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:10:14.963Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-02",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:48:28.938Z",
     "before": {
-      "duration": 32,
+      "adShowing": false,
+      "duration": 31.821,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.13826
     },
     "after": {
+      "adShowing": false,
       "duration": 31.821,
+      "ended": false,
       "paused": false,
-      "time": 17.732469
+      "time": 20.250363
     },
     "passed": true
   },
   {
     "id": "overhand-03",
     "youtubeId": "f7chd4aQ0Bc",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:10:37.716Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-03",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:07.214Z",
     "before": {
-      "duration": 39,
+      "adShowing": false,
+      "duration": 38.681,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.286939
     },
     "after": {
+      "adShowing": false,
       "duration": 38.681,
+      "ended": false,
       "paused": false,
-      "time": 12.492913
+      "time": 31.065395
     },
     "passed": true
   },
   {
     "id": "overhand-04",
     "youtubeId": "_WWkENer3es",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:10:37.836Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-04",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:07.247Z",
     "before": {
-      "duration": 49,
+      "adShowing": false,
+      "duration": 48.921,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.160113
     },
     "after": {
+      "adShowing": false,
       "duration": 48.921,
+      "ended": false,
       "paused": false,
-      "time": 11.799098
+      "time": 30.913338
     },
     "passed": true
   },
   {
     "id": "overhand-05",
     "youtubeId": "HSbA3pmIc_s",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:10:37.962Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-05",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:07.282Z",
     "before": {
-      "duration": 37,
+      "adShowing": false,
+      "duration": 36.781,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.330421
     },
     "after": {
+      "adShowing": false,
       "duration": 36.781,
+      "ended": false,
       "paused": false,
-      "time": 11.37821
+      "time": 30.072906
     },
     "passed": true
   },
   {
     "id": "overhand-06",
     "youtubeId": "egEym1XEzYc",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:10:38.093Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-06",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:07.321Z",
     "before": {
-      "duration": 36,
+      "adShowing": false,
+      "duration": 35.901,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.033873
     },
     "after": {
+      "adShowing": false,
       "duration": 35.901,
+      "ended": false,
       "paused": false,
-      "time": 10.833836
+      "time": 29.77055
     },
     "passed": true
   },
   {
     "id": "overhand-07",
     "youtubeId": "SMEgYn10aWk",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:03.146Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-07",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:27.521Z",
     "before": {
-      "duration": 48,
+      "adShowing": false,
+      "duration": 47.941,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.702681
     },
     "after": {
+      "adShowing": false,
       "duration": 47.941,
+      "ended": false,
       "paused": false,
-      "time": 14.568991
+      "time": 14.82235
     },
     "passed": true
   },
   {
     "id": "overhand-08",
     "youtubeId": "2Ur7_dBcIZo",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:03.300Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-08",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:27.565Z",
     "before": {
-      "duration": 39,
+      "adShowing": false,
+      "duration": 38.841,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.32311
     },
     "after": {
+      "adShowing": false,
       "duration": 38.841,
+      "ended": false,
       "paused": false,
-      "time": 16.038112
+      "time": 14.425593
     },
     "passed": true
   },
   {
     "id": "overhand-09",
     "youtubeId": "JelzqjeO-Vg",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:03.460Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-09",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:27.605Z",
     "before": {
-      "duration": 61,
+      "adShowing": false,
+      "duration": 60.801,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.496002
     },
     "after": {
+      "adShowing": false,
       "duration": 60.801,
+      "ended": false,
       "paused": false,
-      "time": 15.435334
+      "time": 13.576387
     },
     "passed": true
   },
   {
     "id": "overhand-10",
     "youtubeId": "ZXxbLQmbRQ8",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:03.602Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/overhand-10",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:27.647Z",
     "before": {
-      "duration": 38,
+      "adShowing": false,
+      "duration": 38.341,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.280458
     },
     "after": {
+      "adShowing": false,
       "duration": 38.341,
+      "ended": false,
       "paused": false,
-      "time": 15.238
+      "time": 13.32405
     },
     "passed": true
   },
   {
     "id": "serve-01",
     "youtubeId": "m9_AYsKxFZY",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:24.432Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-01",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:54.187Z",
     "before": {
+      "adShowing": false,
       "duration": 62.761,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.136531
     },
     "after": {
+      "adShowing": false,
       "duration": 62.761,
+      "ended": false,
       "paused": false,
-      "time": 12.911464
+      "time": 20.964331
     },
     "passed": true
   },
   {
     "id": "serve-02",
     "youtubeId": "ATM7tb7ncfg",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:24.573Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-02",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:54.222Z",
     "before": {
-      "duration": 40,
+      "adShowing": false,
+      "duration": 40.361,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.239438
     },
     "after": {
+      "adShowing": false,
       "duration": 40.361,
+      "ended": false,
       "paused": false,
-      "time": 12.252546
+      "time": 21.04571
     },
     "passed": true
   },
   {
     "id": "serve-03",
     "youtubeId": "j_1RLXLAszo",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:24.723Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-03",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:54.256Z",
     "before": {
-      "duration": 71,
+      "adShowing": false,
+      "duration": 70.821,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.754569
     },
     "after": {
+      "adShowing": false,
       "duration": 70.821,
+      "ended": false,
       "paused": false,
-      "time": 11.877422
+      "time": 20.486304
     },
     "passed": true
   },
   {
     "id": "serve-04",
     "youtubeId": "9cA7lcWduuY",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:24.865Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-04",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:49:54.293Z",
     "before": {
-      "duration": 59,
+      "adShowing": false,
+      "duration": 58.621,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.06792
     },
     "after": {
+      "adShowing": false,
       "duration": 58.621,
+      "ended": false,
       "paused": false,
-      "time": 10.760404
+      "time": 19.790908
     },
     "passed": true
   },
   {
     "id": "serve-05",
     "youtubeId": "HnKARjP8x3o",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:49.237Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-05",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:08.605Z",
     "before": {
-      "duration": 36,
+      "adShowing": false,
+      "duration": 36.241,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.331234
     },
     "after": {
+      "adShowing": false,
       "duration": 36.241,
+      "ended": false,
       "paused": false,
-      "time": 14.038145
+      "time": 7.154102
     },
     "passed": true
   },
   {
     "id": "serve-06",
     "youtubeId": "8kojqMjU42k",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:49.387Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-06",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:08.639Z",
     "before": {
-      "duration": 36,
+      "adShowing": false,
+      "duration": 36.161,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.186609
     },
     "after": {
+      "adShowing": false,
       "duration": 36.161,
+      "ended": false,
       "paused": false,
-      "time": 14.134485
+      "time": 7.00035
     },
     "passed": true
   },
   {
     "id": "serve-07",
     "youtubeId": "G9BT8mrRDsE",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:49.511Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-07",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:08.671Z",
     "before": {
-      "duration": 35,
+      "adShowing": false,
+      "duration": 34.941,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.474862
     },
     "after": {
+      "adShowing": false,
       "duration": 34.941,
+      "ended": false,
       "paused": false,
-      "time": 13.362599
+      "time": 6.27763
     },
     "passed": true
   },
   {
     "id": "serve-08",
     "youtubeId": "WDiZfLFc_fI",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:11:49.649Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-08",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:08.705Z",
     "before": {
-      "duration": 63,
+      "adShowing": false,
+      "duration": 62.881,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.087979
     },
     "after": {
+      "adShowing": false,
       "duration": 62.881,
+      "ended": false,
       "paused": false,
-      "time": 12.900083
+      "time": 5.881994
     },
     "passed": true
   },
   {
     "id": "serve-09",
     "youtubeId": "1479-lTd8Zk",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:12:08.043Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-09",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:22.440Z",
     "before": {
-      "duration": 41,
+      "adShowing": false,
+      "duration": 41.121,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.240161
     },
     "after": {
+      "adShowing": false,
       "duration": 41.121,
+      "ended": false,
       "paused": false,
-      "time": 12.162742
+      "time": 8.459616
     },
     "passed": true
   },
   {
     "id": "serve-10",
     "youtubeId": "Gi1SJnJdBSI",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:12:08.198Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/serve-10",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:22.475Z",
     "before": {
-      "duration": 55,
+      "adShowing": false,
+      "duration": 54.601,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.11277
     },
     "after": {
+      "adShowing": false,
       "duration": 54.601,
+      "ended": false,
       "paused": false,
-      "time": 12.164886
+      "time": 8.331194
     },
     "passed": true
   },
   {
     "id": "spike-01",
     "youtubeId": "Tbt4JMPFhpA",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:12:08.358Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-01",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:22.508Z",
     "before": {
-      "duration": 59,
+      "adShowing": false,
+      "duration": 58.621,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.291002
     },
     "after": {
+      "adShowing": false,
       "duration": 58.621,
+      "ended": false,
       "paused": false,
-      "time": 10.551503
+      "time": 7.503181
     },
     "passed": true
   },
   {
     "id": "spike-02",
     "youtubeId": "6pAexe_aJW8",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:12:08.510Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-02",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:22.541Z",
     "before": {
+      "adShowing": false,
       "duration": 59,
+      "ended": false,
       "paused": false,
       "time": 0
     },
     "after": {
+      "adShowing": false,
       "duration": 58.501,
+      "ended": false,
       "paused": false,
-      "time": 11.010353
+      "time": 6.512756
     },
     "passed": true
   },
   {
     "id": "spike-03",
     "youtubeId": "Bpgs0YtGFwo",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:12:36.016Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-03",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:53.283Z",
     "before": {
-      "duration": 51,
+      "adShowing": false,
+      "duration": 50.681,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.680324
     },
     "after": {
+      "adShowing": false,
       "duration": 50.681,
+      "ended": false,
       "paused": false,
-      "time": 12.891897
+      "time": 23.840605
     },
     "passed": true
   },
   {
     "id": "spike-04",
     "youtubeId": "ZQx00PqKfww",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:12:36.153Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-04",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:53.317Z",
     "before": {
-      "duration": 61,
+      "adShowing": false,
+      "duration": 60.861,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.3454
     },
     "after": {
+      "adShowing": false,
       "duration": 60.861,
+      "ended": false,
       "paused": false,
-      "time": 12.852985
+      "time": 22.50182
     },
     "passed": true
   },
   {
     "id": "spike-05",
     "youtubeId": "Ra-tXUFnY0s",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:12:36.302Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-05",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:53.352Z",
     "before": {
-      "duration": 42,
+      "adShowing": false,
+      "duration": 42.421,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.322015
     },
     "after": {
+      "adShowing": false,
       "duration": 42.421,
+      "ended": false,
       "paused": false,
-      "time": 12.281985
+      "time": 22.47652
     },
     "passed": true
   },
   {
     "id": "spike-06",
     "youtubeId": "0ax8hQMWcCc",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:12:36.443Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-06",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:50:53.394Z",
     "before": {
-      "duration": 36,
+      "adShowing": false,
+      "duration": 35.721,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.121424
     },
     "after": {
+      "adShowing": false,
       "duration": 35.721,
+      "ended": false,
       "paused": false,
-      "time": 11.786069
+      "time": 22.283071
     },
     "passed": true
   },
   {
     "id": "spike-07",
     "youtubeId": "--zCJt0285g",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:13:06.182Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-07",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:11.582Z",
     "before": {
-      "duration": 34,
+      "adShowing": false,
+      "duration": 34.361,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.06703
     },
     "after": {
+      "adShowing": false,
       "duration": 34.361,
+      "ended": false,
       "paused": false,
-      "time": 19.656725
+      "time": 12.622377
     },
     "passed": true
   },
   {
     "id": "spike-08",
     "youtubeId": "RJwo6L5Y2wM",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:13:06.316Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-08",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:11.616Z",
     "before": {
-      "duration": 47,
+      "adShowing": false,
+      "duration": 46.741,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.768279
     },
     "after": {
+      "adShowing": false,
       "duration": 46.741,
+      "ended": false,
       "paused": false,
-      "time": 19.324303
+      "time": 12.298617
     },
     "passed": true
   },
   {
     "id": "spike-09",
     "youtubeId": "yVSTSoYl-ec",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:13:06.462Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-09",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:11.653Z",
     "before": {
-      "duration": 44,
+      "adShowing": false,
+      "duration": 44.261,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.648694
     },
     "after": {
+      "adShowing": false,
       "duration": 44.261,
+      "ended": false,
       "paused": false,
-      "time": 18.62389
+      "time": 12.174033
     },
     "passed": true
   },
   {
     "id": "blocking-01",
     "youtubeId": "2mIsC4civx4",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:13:06.612Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/blocking-01",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:11.687Z",
     "before": {
-      "duration": 73,
+      "adShowing": false,
+      "duration": 72.981,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.05563
     },
     "after": {
+      "adShowing": false,
       "duration": 72.981,
+      "ended": false,
       "paused": false,
-      "time": 18.565489
+      "time": 11.577447
     },
     "passed": true
   },
   {
     "id": "blocking-02",
     "youtubeId": "uvDjblqTXHk",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:13:49.231Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/blocking-02",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:28.336Z",
     "before": {
-      "duration": 72,
+      "adShowing": false,
+      "duration": 72.341,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.643819
     },
     "after": {
+      "adShowing": false,
       "duration": 72.341,
+      "ended": false,
       "paused": false,
-      "time": 34.555303
+      "time": 11.656778
     },
     "passed": true
   },
   {
     "id": "blocking-03",
     "youtubeId": "BAMxz_5eq70",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:13:49.372Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/blocking-03",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:28.369Z",
     "before": {
+      "adShowing": false,
       "duration": 335.881,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.127657
     },
     "after": {
+      "adShowing": false,
       "duration": 335.881,
+      "ended": false,
       "paused": false,
-      "time": 34.085147
+      "time": 11.138551
     },
     "passed": true
   },
   {
     "id": "blocking-04",
     "youtubeId": "A88IeIk8G_0",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:13:49.529Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/blocking-04",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:28.405Z",
     "before": {
-      "duration": 320,
+      "adShowing": false,
+      "duration": 320.121,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 0.401547
     },
     "after": {
+      "adShowing": false,
       "duration": 320.121,
+      "ended": false,
       "paused": false,
-      "time": 33.375637
+      "time": 10.409896
     },
     "passed": true
   },
   {
     "id": "blocking-05",
     "youtubeId": "YscpR9Quf5A",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:13:49.697Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/blocking-05",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:28.440Z",
     "before": {
+      "adShowing": false,
       "duration": 274.941,
+      "ended": false,
       "paused": false,
       "time": 0
     },
     "after": {
+      "adShowing": false,
       "duration": 274.941,
+      "ended": false,
       "paused": false,
-      "time": 33.042064
+      "time": 9.900381
     },
     "passed": true
   },
   {
     "id": "blocking-06",
     "youtubeId": "mFnm7CD7vgY",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:14:37.555Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/blocking-06",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:43.763Z",
     "before": {
-      "duration": 397,
+      "adShowing": false,
+      "duration": 396.901,
+      "ended": false,
       "paused": false,
-      "time": 0
+      "time": 1.699259
     },
     "after": {
+      "adShowing": false,
       "duration": 396.901,
+      "ended": false,
       "paused": false,
-      "time": 41.162018
+      "time": 8.439486
     },
     "passed": true
   },
   {
     "id": "dig-01",
     "youtubeId": "ykwayM7mpFU",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:14:37.724Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/dig-01",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:43.809Z",
     "before": {
-      "duration": 314,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
+      "adShowing": false,
       "duration": 313.581,
+      "ended": false,
       "paused": false,
-      "time": 40.474796
-    },
-    "passed": true
-  },
-  {
-    "id": "dig-03",
-    "youtubeId": "vBPsx7J78ow",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:14:38.033Z",
-    "before": {
-      "duration": 449,
-      "paused": false,
-      "time": 0
+      "time": 0.503821
     },
     "after": {
-      "duration": 449.161,
+      "adShowing": false,
+      "duration": 313.581,
+      "ended": false,
       "paused": false,
-      "time": 39.681865
-    },
-    "passed": true
-  },
-  {
-    "id": "dig-04",
-    "youtubeId": "ypGyda3d41o",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:15:11.869Z",
-    "before": {
-      "duration": 695,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 695.461,
-      "paused": false,
-      "time": 23.1906
-    },
-    "passed": true
-  },
-  {
-    "id": "dig-05",
-    "youtubeId": "b9EVA7q5ocU",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:15:12.033Z",
-    "before": {
-      "duration": 308,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 307.741,
-      "paused": false,
-      "time": 22.6892
-    },
-    "passed": true
-  },
-  {
-    "id": "dig-06",
-    "youtubeId": "u8ljpMRzLp4",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:15:12.221Z",
-    "before": {
-      "duration": 569,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 568.541,
-      "paused": false,
-      "time": 22.337174
-    },
-    "passed": true
-  },
-  {
-    "id": "dig-07",
-    "youtubeId": "lNOhHi30X7E",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:15:12.358Z",
-    "before": {
-      "duration": 565,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 565.281,
-      "paused": false,
-      "time": 21.974153
-    },
-    "passed": true
-  },
-  {
-    "id": "dig-08",
-    "youtubeId": "FkIfgrWIOrQ",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:16:46.963Z",
-    "before": {
-      "duration": 301,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 300.581,
-      "paused": false,
-      "time": 73.420648
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-01",
-    "youtubeId": "ZwY_DaHkTfU",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:16:47.102Z",
-    "before": {
-      "duration": 615,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 614.741,
-      "paused": false,
-      "time": 72.913206
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-02",
-    "youtubeId": "Q-QWo65F15U",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:16:47.259Z",
-    "before": {
-      "duration": 393,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 393.021,
-      "paused": false,
-      "time": 72.363767
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-03",
-    "youtubeId": "Luc2iggnhi0",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:16:47.415Z",
-    "before": {
-      "duration": 410,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 409.541,
-      "paused": false,
-      "time": 71.710723
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-04",
-    "youtubeId": "86eCodRsT6I",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:17:59.701Z",
-    "before": {
-      "duration": 131,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 130.961,
-      "paused": false,
-      "time": 66.453596
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-05",
-    "youtubeId": "UAPvQsQ4TD0",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:17:59.900Z",
-    "before": {
-      "duration": 1099,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 1099.461,
-      "paused": false,
-      "time": 66.054712
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-06",
-    "youtubeId": "OsLYNHjG-sc",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:18:00.065Z",
-    "before": {
-      "duration": 808,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 808.101,
-      "paused": false,
-      "time": 65.613425
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-07",
-    "youtubeId": "pXBnRyZWZ2M",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:18:00.231Z",
-    "before": {
-      "duration": 579,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 579.061,
-      "paused": false,
-      "time": 65.260293
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-08",
-    "youtubeId": "N4o4KIi2Fr0",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:19:02.462Z",
-    "before": {
-      "duration": 599,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 598.621,
-      "paused": false,
-      "time": 57.213108
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-09",
-    "youtubeId": "d-rxfFZLKN0",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:19:02.637Z",
-    "before": {
-      "duration": 370,
-      "paused": false,
-      "time": 0
-    },
-    "after": {
-      "duration": 370.161,
-      "paused": false,
-      "time": 56.811159
-    },
-    "passed": true
-  },
-  {
-    "id": "pro-10",
-    "youtubeId": "Rt8WAfIqoRI",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:19:02.798Z",
-    "before": {
-      "duration": 667.081,
-      "paused": false,
-      "time": 0.018611
-    },
-    "after": {
-      "duration": 667.081,
-      "paused": false,
-      "time": 56.752996
+      "time": 7.244456
     },
     "passed": true
   },
   {
     "id": "dig-02",
     "youtubeId": "xbf8L3PhFg4",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:23:49.728Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/dig-02",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:43.866Z",
     "before": {
-      "duration": 36,
+      "adShowing": false,
+      "duration": 35.721,
+      "ended": false,
+      "paused": false,
+      "time": 0.772964
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 35.721,
+      "ended": false,
+      "paused": false,
+      "time": 7.526697
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-03",
+    "youtubeId": "vBPsx7J78ow",
+    "pageUrl": "http://127.0.0.1:5173/#/video/dig-03",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:43.930Z",
+    "before": {
+      "adShowing": false,
+      "duration": 449.161,
+      "ended": false,
+      "paused": false,
+      "time": 0.065968
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 449.161,
+      "ended": false,
+      "paused": false,
+      "time": 6.843032
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-04",
+    "youtubeId": "ypGyda3d41o",
+    "pageUrl": "http://127.0.0.1:5173/#/video/dig-04",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:59.101Z",
+    "before": {
+      "adShowing": false,
+      "duration": 695.461,
+      "ended": false,
+      "paused": false,
+      "time": 1.402507
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 695.461,
+      "ended": false,
+      "paused": false,
+      "time": 7.90034
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-05",
+    "youtubeId": "b9EVA7q5ocU",
+    "pageUrl": "http://127.0.0.1:5173/#/video/dig-05",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:59.149Z",
+    "before": {
+      "adShowing": false,
+      "duration": 307.741,
+      "ended": false,
+      "paused": false,
+      "time": 0.812007
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 307.741,
+      "ended": false,
+      "paused": false,
+      "time": 7.274158
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-06",
+    "youtubeId": "u8ljpMRzLp4",
+    "pageUrl": "http://127.0.0.1:5173/#/video/dig-06",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:59.189Z",
+    "before": {
+      "adShowing": false,
+      "duration": 568.541,
+      "ended": false,
+      "paused": false,
+      "time": 0.641578
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 568.541,
+      "ended": false,
+      "paused": false,
+      "time": 7.080363
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-07",
+    "youtubeId": "lNOhHi30X7E",
+    "pageUrl": "http://127.0.0.1:5173/#/video/dig-07",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:51:59.233Z",
+    "before": {
+      "adShowing": false,
+      "duration": 565.281,
+      "ended": false,
+      "paused": false,
+      "time": 0.02
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 565.281,
+      "ended": false,
+      "paused": false,
+      "time": 6.398423
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-08",
+    "youtubeId": "FkIfgrWIOrQ",
+    "pageUrl": "http://127.0.0.1:5173/#/video/dig-08",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:16.593Z",
+    "before": {
+      "adShowing": false,
+      "duration": 300.581,
+      "ended": false,
+      "paused": false,
+      "time": 1.801347
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 300.581,
+      "ended": false,
+      "paused": false,
+      "time": 12.286155
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-01",
+    "youtubeId": "ZwY_DaHkTfU",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-01",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:16.658Z",
+    "before": {
+      "adShowing": false,
+      "duration": 614.741,
+      "ended": false,
+      "paused": false,
+      "time": 1.041816
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 614.741,
+      "ended": false,
+      "paused": false,
+      "time": 11.530339
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-02",
+    "youtubeId": "Q-QWo65F15U",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-02",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:16.708Z",
+    "before": {
+      "adShowing": false,
+      "duration": 393.021,
+      "ended": false,
+      "paused": false,
+      "time": 0.763887
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 393.021,
+      "ended": false,
+      "paused": false,
+      "time": 11.263664
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-03",
+    "youtubeId": "Luc2iggnhi0",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-03",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:16.754Z",
+    "before": {
+      "adShowing": false,
+      "duration": 410,
+      "ended": false,
       "paused": false,
       "time": 0
     },
     "after": {
-      "duration": 35.721,
+      "adShowing": false,
+      "duration": 409.541,
+      "ended": false,
       "paused": false,
-      "time": 16.551771
+      "time": 10.194974
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-04",
+    "youtubeId": "86eCodRsT6I",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-04",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:33.031Z",
+    "before": {
+      "adShowing": false,
+      "duration": 130.961,
+      "ended": false,
+      "paused": false,
+      "time": 1.565944
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 130.961,
+      "ended": false,
+      "paused": false,
+      "time": 9.320511
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-05",
+    "youtubeId": "UAPvQsQ4TD0",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-05",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:33.069Z",
+    "before": {
+      "adShowing": false,
+      "duration": 1099.461,
+      "ended": false,
+      "paused": false,
+      "time": 1.081457
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 1099.461,
+      "ended": false,
+      "paused": false,
+      "time": 8.804315
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-06",
+    "youtubeId": "OsLYNHjG-sc",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-06",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:33.112Z",
+    "before": {
+      "adShowing": false,
+      "duration": 808.101,
+      "ended": false,
+      "paused": false,
+      "time": 0.271621
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 808.101,
+      "ended": false,
+      "paused": false,
+      "time": 7.970497
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-07",
+    "youtubeId": "pXBnRyZWZ2M",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-07",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:33.173Z",
+    "before": {
+      "adShowing": false,
+      "duration": 579.061,
+      "ended": false,
+      "paused": false,
+      "time": 0.063514
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 579.061,
+      "ended": false,
+      "paused": false,
+      "time": 7.784349
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-08",
+    "youtubeId": "N4o4KIi2Fr0",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-08",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:56.448Z",
+    "before": {
+      "adShowing": false,
+      "duration": 598.621,
+      "ended": false,
+      "paused": false,
+      "time": 1.244231
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 598.621,
+      "ended": false,
+      "paused": false,
+      "time": 17.879511
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-09",
+    "youtubeId": "d-rxfFZLKN0",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-09",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:56.482Z",
+    "before": {
+      "adShowing": false,
+      "duration": 370.161,
+      "ended": false,
+      "paused": false,
+      "time": 1.138599
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 370.161,
+      "ended": false,
+      "paused": false,
+      "time": 17.768604
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-10",
+    "youtubeId": "Rt8WAfIqoRI",
+    "pageUrl": "http://127.0.0.1:5173/#/video/pro-10",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:56.521Z",
+    "before": {
+      "adShowing": false,
+      "duration": 667.081,
+      "ended": false,
+      "paused": false,
+      "time": 0.289629
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 667.081,
+      "ended": false,
+      "paused": false,
+      "time": 16.916628
     },
     "passed": true
   },
   {
     "id": "spike-10",
     "youtubeId": "Nj3EIFbeYIU",
-    "environment": "local Windows Chrome",
-    "checkedAt": "2026-10-12T11:24:05.885Z",
+    "pageUrl": "http://127.0.0.1:5173/#/video/spike-10",
+    "environment": "Windows Chrome 154.0.8037.98 / localhost / YouTube nocookie embed",
+    "checkedAt": "2026-10-12T11:52:56.557Z",
     "before": {
+      "adShowing": false,
       "duration": 50.641,
+      "ended": false,
       "paused": false,
-      "time": 0.040632
+      "time": 0.152754
     },
     "after": {
+      "adShowing": false,
       "duration": 50.641,
+      "ended": false,
       "paused": false,
-      "time": 12.11641
+      "time": 16.781012
     },
     "passed": true
   }

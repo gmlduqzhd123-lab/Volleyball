@@ -29,11 +29,11 @@
 
 Windows Chrome, http://127.0.0.1:5173/, 실제 YouTube nocookie iframe에서 64/64 성공했습니다. 상세에 진입하면 iframe이 없고, ‘플레이어 열기’ 클릭 후 YouTube ‘동영상 재생’을 클릭했습니다. 이후 HTML video의 `currentTime` 증가와 `paused:false`를 확인했습니다. 광고·썸네일만 표시된 상태는 성공으로 처리하지 않았습니다. 종료 시각에 도달한 짧은 영상은 다시 재생해 진행 중 상태로 재확인했습니다.
 
-영상별 검사 시각, ID, 재생 전후 시간과 성공 여부: [로컬 기록](video-playback-local.json). ISO 시각은 UTC입니다.
+영상별 검사 시각, ID, 재생 전후 시간과 성공 여부: [로컬 기록](video-playback-local.json). ISO 시각은 UTC입니다. 최종 검사에서는 YouTube 플레이어의 광고 표시 상태(`adShowing`)도 함께 읽어 광고 전후 상태가 모두 false인 본 영상의 진행만 인정합니다. 광고가 있으면 종료 또는 건너뛰기 후 새 시작 시각을 기록합니다.
 
 ## 공개 사이트 재생
 
-배포 후 https://gmlduqzhd123-lab.github.io/Volleyball/ 에서 동일 절차로 전편 재검사 예정입니다. 결과를 최종 검증 기록으로 갱신합니다.
+배포 커밋 `f13557ba842fd85640a7e14b40f7a3d5e54b02dd`, GitHub Actions [38243201927](https://github.com/gmlduqzhd123-lab/Volleyball/actions/runs/38243201927) 성공. https://gmlduqzhd123-lab.github.io/Volleyball/ 에서 64/64 본 영상 재생 성공을 다시 확인했습니다. 검사 환경은 Windows Chrome 154.0.8037.98, 검사일은 2026-10-12입니다. [공개 사이트 전편 기록](video-playback-live.json)에 상세 주소·검사 시각·광고 표시 여부·재생 전후 시간을 저장했습니다. 공개 videos.json과 로컬 파일이 문자 단위로 일치하고 배포 JS/CSS 이름이 검사한 빌드와 일치합니다.
 
 ## 화면·자동 검사
 

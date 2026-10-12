@@ -219,6 +219,12 @@ test("save desktop and mobile preview images", async ({ page }) => {
     path: "artifacts/positions-mobile.png",
     fullPage: true,
   });
+  await page.goto("/#/pro");
+  await expect(page.locator(".video-card")).toHaveCount(10);
+  await page.screenshot({ path: "artifacts/videos-mobile.png", fullPage: false });
+  await page.goto("/#/skill/dig");
+  await expect(page.locator(".video-card")).toHaveCount(8);
+  await page.screenshot({ path: "artifacts/skill-videos-mobile.png", fullPage: true });
 });
 
 test("built GitHub Pages subpath direct route and reload", async ({ page }) => {
