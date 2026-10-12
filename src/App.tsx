@@ -29,7 +29,6 @@ import {
   parseYoutubeUrl,
   positionNames,
   quizScore,
-  rotatedPlayers,
   validDate,
   validateLearning,
   validateVideos,
@@ -391,7 +390,7 @@ function Home({
             <p>
               우리 팀에서 나의 역할은?
               <br />
-              코트 위 포지션과 로테이션
+              9인제 코트 배치와 역할
             </p>
             <span className="card-link">
               포지션 배우기
@@ -798,7 +797,7 @@ function Beginner({
             ))}
           </div>
           <div className="section">
-            <LinkButton to="positions">코트에서 로테이션 확인하기</LinkButton>
+            <LinkButton to="positions">9인제 코트 배치 확인하기</LinkButton>
           </div>
         </>
       )}
@@ -971,145 +970,58 @@ function SkillDetail({
 }
 function Positions({ resource }: { resource: Resource<Position> }) {
   const [selected, setSelected] = useState("setter"),
-    [turn, setTurn] = useState(0),
+    [server, setServer] = useState(1),
     [spot, setSpot] = useState(1);
   const p = resource.data.find((p) => p.id === selected);
-  const players = rotatedPlayers(turn);
-  const coords = [
-    [330, 280],
-    [330, 120],
-    [220, 120],
-    [110, 120],
-    [110, 280],
-    [220, 280],
-  ];
+  const coords = [[110, 112], [220, 112], [330, 112],
+    [110, 208], [220, 208], [330, 208],
+    [110, 304], [220, 304], [330, 304]];
+  const areas = ["앞쪽", "가운데", "뒤쪽"];
   return (
     <>
-      <PageTitle
-        eyebrow="FIND YOUR PLACE"
-        title="코트 위, 나의 역할"
-        description="여섯 개의 자리, 다섯 가지 역할. 팀워크는 서로의 자리를 이해하는 것부터 시작해요."
-      />
+      <PageTitle eyebrow="FIND YOUR PLACE" title="코트 위, 나의 역할"
+        description="9인제 배구, 아홉 명이 함께 만드는 팀워크. 코트 배치와 역할, 서브 순서를 배워요." />
       <DataState resource={resource} label="포지션 자료" />
       <div className="position-layout">
         <section className="court-panel">
           <div className="section-heading">
-            <h2>로테이션을 눈으로 익혀요</h2>
-            <span className="tag">6인제</span>
+            <h2>아홉 명의 배치를 익혀요</h2><span className="tag">9인제</span>
           </div>
-          <p>서브권을 새로 얻으면, 시계 방향으로 한 자리.</p>
-          <svg
-            className="court"
-            viewBox="0 0 440 390"
-            role="group"
-            aria-label="배구 코트 로테이션 위치, 번호를 선택해 보세요"
-          >
-            <rect
-              x="50"
-              y="65"
-              width="340"
-              height="270"
-              rx="3"
-              fill="#e5ead7"
-              stroke="#5b8168"
-              strokeWidth="3"
-            />
-            <rect x="50" y="65" width="340" height="92" fill="#d0dfba" />
-            <path d="M50 157 H390" stroke="#fff" strokeWidth="3" />
+          <p>자리 로테이션은 없어요. 팀의 작전에 맞춰 공격과 수비 위치를 정해요.</p>
+          <svg className="court nine-court" viewBox="0 0 440 410" role="group"
+            aria-label="9인제 배구 코트 배치 예시, 아홉 명의 선수를 선택해 보세요">
+            <rect x="50" y="65" width="340" height="305" rx="3" fill="#e5ead7" stroke="#5b8168" strokeWidth="3" />
             <path d="M40 57 H400" stroke="#183f35" strokeWidth="5" />
-            <text x="220" y="33" textAnchor="middle">
-              네트 / 상대 코트
-            </text>
-            <text x="220" y="191" textAnchor="middle" className="court-label">
-              공격선 · 네트에서 3m
-            </text>
-            <text
-              x="23"
-              y="125"
-              className="court-label"
-              transform="rotate(-90 23 125)"
-            >
-              전위
-            </text>
-            <text
-              x="23"
-              y="285"
-              className="court-label"
-              transform="rotate(-90 23 285)"
-            >
-              후위
-            </text>
+            <text x="220" y="33" textAnchor="middle">네트 / 상대 코트</text>
+            {areas.map((area, i) => <text key={area} x="23" y={112 + i * 96}
+              className="court-label" transform={`rotate(-90 23 ${112 + i * 96})`}>{area}</text>)}
             {coords.map(([x, y], i) => (
-              <g
-                key={i}
-                role="button"
-                tabIndex={0}
-                aria-label={`${i + 1}번 위치, 선수 ${players[i]}`}
-                aria-pressed={spot === i + 1}
-                onClick={() => setSpot(i + 1)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setSpot(i + 1);
-                  }
-                }}
-                className="court-spot"
-              >
-                <circle
-                  cx={x}
-                  cy={y}
-                  r="25"
-                  fill={spot === i + 1 ? "#194a3a" : "#fffef3"}
-                  stroke="#194a3a"
-                  strokeWidth="2"
-                />
-                <text
-                  x={x}
-                  y={y + 6}
-                  textAnchor="middle"
-                  fill={spot === i + 1 ? "white" : "#194a3a"}
-                >
-                  {i + 1}
-                </text>
-                <text
-                  x={x}
-                  y={y + 45}
-                  textAnchor="middle"
-                  className="player-label"
-                >
-                  선수 {players[i]}
-                </text>
+              <g key={i} role="button" tabIndex={0} aria-label={`선수 ${i + 1}, ${areas[Math.floor(i / 3)]} 배치 예시`}
+                aria-pressed={spot === i + 1} onClick={() => setSpot(i + 1)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSpot(i + 1); } }}
+                className="court-spot">
+                <rect x={x - 44} y={y - 43} width="88" height="86" fill="transparent" />
+                <circle cx={x} cy={y} r="32" fill={spot === i + 1 ? "#194a3a" : "#fffef3"}
+                  stroke="#194a3a" strokeWidth="2" />
+                <text x={x} y={y + 6} textAnchor="middle" fill={spot === i + 1 ? "white" : "#194a3a"}>{i + 1}</text>
+                <text x={x} y={y + 47} textAnchor="middle" className="player-label">선수 {i + 1}</text>
               </g>
             ))}
-            <text x="220" y="370" textAnchor="middle" className="court-label">
-              우리 코트 · 엔드라인
-            </text>
+            <text x="220" y="398" textAnchor="middle" className="court-label">우리 코트 · 엔드라인</text>
           </svg>
-          <div className="rotation-controls">
-            <button
-              className="button small secondary"
-              onClick={() => {
-                setTurn(0);
-                setSpot(1);
-              }}
-              aria-label="로테이션 처음으로"
-            >
-              <RotateCcw size={17} />
-            </button>
-            <span aria-live="polite">{turn} / 6 회전</span>
-            <button
-              className="button small"
-              onClick={() => setTurn((n) => (n + 1) % 7)}
-            >
-              다음 위치
-              <RotateCcw size={17} />
-            </button>
-          </div>
           <p className="court-caption" aria-live="polite">
-            <b>{spot}번</b>은 {spot >= 2 && spot <= 4 ? "전위" : "후위"} 위치
-            {spot === 1 ? "이며 서브 순서의 자리예요." : "예요."} 현재 선수{" "}
-            {players[spot - 1]}이 있어요.
+            <b>선수 {spot}</b>는 {areas[Math.floor((spot - 1) / 3)]}에 배치한 예시예요. 숫자는 설명용이며 공식 위치 번호가 아니에요.
           </p>
+          <div className="serve-lesson">
+            <h3>자리는 그대로, 서브는 타순대로</h3>
+            <p>우리 팀이 서브 중 득점하면 같은 선수가 계속 서브해요. 상대 서브 중 득점해 서브권을 얻으면 다음 타순 선수가 서브해요.</p>
+            <div className="rotation-controls">
+              <button className="button small secondary" onClick={() => setServer(1)} aria-label="서브 순서 처음으로"><RotateCcw size={17} /></button>
+              <span aria-live="polite">예시 서브 타순: 선수 {server}</span>
+              <button className="button small" onClick={() => setServer((n) => n % 9 + 1)}>다음 서버</button>
+            </div>
+            <p>버튼은 서브권을 새로 얻은 상황을 보여줘요. 선수 1~9 순서는 학습용이며, 실제 순서는 서비스 순서 용지를 따라요. 서버는 서브할 때 엔드라인 뒤 서비스 지역으로 이동해요.</p>
+          </div>
         </section>
         <section className="roles-panel">
           <h2>나는 어떤 역할을 할까요?</h2>
@@ -1149,12 +1061,10 @@ function Positions({ resource }: { resource: Resource<Position> }) {
       <div className="notice">
         <Flag size={20} />
         <div>
-          <b>위치 번호와 전문 포지션은 다른 개념이에요.</b>
-          <p>
-            1~6번은 로테이션 자리, 세터·리베로 등은 선수의 역할이에요.
-            시뮬레이션의 ‘선수 1~6’은 이동을 보여 주는 예시이며 역할 배치가
-            아닙니다. 실제 수비 배치와 리베로 교대는 따로 적용해요.
-          </p>
+          <b>배치는 팀마다 달라요. 역할을 함께 정해 보세요.</b>
+          <p>3×3 그림은 아홉 명을 쉽게 이해하기 위한 예시이며 의무 배치가 아니에요. 9인제에는 6인제의 시계 방향 자리 로테이션, 3m 공격선, 리베로 제도를 적용하지 않아요. 수비 담당도 일반 선수로 서브와 공격에 참여할 수 있어요.</p>
+          <p>아래 역할은 입문용 분류예요. 세터의 수와 공격·수비 분담은 팀의 전술에 따라 달라질 수 있어요. 실제 경기는 참가 대회의 경기요강을 먼저 확인하세요.</p>
+          <a href="https://www.kva.or.kr/user/template.do?fileNm=vlb2_1" target="_blank" rel="noopener noreferrer">대한배구협회 경기규칙 · 9인제 배구 확인하기</a>
         </div>
       </div>
     </>

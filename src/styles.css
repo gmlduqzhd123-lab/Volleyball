@@ -1178,6 +1178,26 @@ select {
 .court-caption {
   margin: 20px 0 0;
 }
+.nine-court {
+  max-height: 440px;
+}
+.serve-lesson {
+  border-top: 1px solid #d4dec9;
+  margin-top: 20px;
+  padding-top: 16px;
+}
+.serve-lesson h3 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+.serve-lesson .rotation-controls {
+  flex-wrap: wrap;
+  margin: 16px 0;
+  gap: 8px;
+}
+.serve-lesson .button {
+  min-height: 44px;
+}
 .roles-panel {
   padding: 18px 0;
 }

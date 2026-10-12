@@ -67,7 +67,7 @@ test("five renamed navigation links work on desktop and mobile", async ({ page }
   await page.screenshot({path:'artifacts/navigation-videos-mobile.png'});
 });
 
-test("terms, rules, lesson detail and keyboard court rotation", async ({
+test("terms, rules, lesson detail and keyboard nine-player court and service order", async ({
   page,
 }) => {
   await page.goto("/#/beginner");
@@ -80,15 +80,22 @@ test("terms, rules, lesson detail and keyboard court rotation", async ({
   await page.goto("/#/skill/underhand-pass");
   await expect(page.locator(".steps li")).toHaveCount(4);
   await page.goto("/#/positions");
-  await page.getByRole("button", { name: "다음 위치" }).click();
-  await expect(
-    page.getByRole("button", { name: "1번 위치, 선수 2" }),
-  ).toBeVisible();
-  await page.getByRole("button", { name: "3번 위치, 선수 4" }).focus();
-  await page.keyboard.press("Enter");
-  await expect(page.locator(".court-caption")).toContainText("3번");
-  await page.getByRole("button", { name: "L 리베로", exact: true }).click();
-  await expect(page.locator(".role-description h2")).toHaveText("리베로");
+  await expect(page.locator('.court-spot')).toHaveCount(9);
+  const before = await page.locator('.court-spot').allTextContents();
+  await page.getByRole('button', { name: '다음 서버', exact: true }).click();
+  await expect(page.locator('.rotation-controls')).toContainText('선수 2');
+  expect(await page.locator('.court-spot').allTextContents()).toEqual(before);
+  for (let i = 0; i < 8; i++) await page.getByRole('button', { name: '다음 서버', exact: true }).click();
+  await expect(page.locator('.rotation-controls')).toContainText('선수 1');
+  await page.getByRole('button', { name: '선수 9, 뒤쪽 배치 예시' }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.court-caption')).toContainText('선수 9');
+  await page.getByRole('button', { name: '수 수비 담당', exact: true }).click();
+  await expect(page.locator('.role-description h2')).toHaveText('수비 담당');
+  await expect(page.locator('.role-description')).toContainText('리베로가 아니에요');
+  await page.getByRole('button', { name: '다음 서버', exact: true }).click();
+  await page.getByRole('button', { name: '서브 순서 처음으로' }).click();
+  await expect(page.locator('.rotation-controls')).toContainText('선수 1');
 });
 test("10 question scoring, feedback, storage and retry", async ({ page }) => {
   await page.goto("/#/quiz");
@@ -328,7 +335,7 @@ test("built GitHub Pages subpath direct route and reload", async ({ page }) => {
   ).toBeVisible();
   await page.reload();
   await expect(
-    page.getByRole("button", { name: "1번 위치, 선수 1" }),
+    page.getByRole("button", { name: "선수 1, 앞쪽 배치 예시" }),
   ).toBeVisible();
   await page.goto("http://127.0.0.1:5174/volleyball/#/skill/dig");
   await expect(page.locator(".steps li")).toHaveCount(4);
