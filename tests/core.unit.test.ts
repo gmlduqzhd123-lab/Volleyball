@@ -77,6 +77,7 @@ describe("learning data", () => {
     const all=validateVideos(JSON.parse(readFileSync('public/data/videos.json','utf8')));
     const videos=all.filter(v=>v.category==='elementary');
     const playback=JSON.parse(readFileSync('docs/elementary-playback-local.json','utf8'));
+    const livePlayback=JSON.parse(readFileSync('docs/elementary-playback-live.json','utf8'));
     expect(videos).toHaveLength(10);
     expect(new Set(all.map(v=>v.youtubeId)).size).toBe(all.length);
     for(const v of videos){
@@ -87,11 +88,13 @@ describe("learning data", () => {
       expect(v.matchDate).toBeUndefined();
       expect(v.matchInfo).toContain('초등학교 배구대회');
       expect(parseYoutubeUrl(v.sourceUrl!)).toBe(v.youtubeId);
-      const r=playback.find((r:{id:string})=>r.id===v.id);
-      expect(r?.passed).toBe(true);
-      expect(r.youtubeId).toBe(v.youtubeId);
-      for(const state of [r.before,r.after]){expect(state.paused).toBe(false);expect(state.adShowing).toBe(false);}
-      expect(r.after.time).toBeGreaterThan(r.before.time+0.5);
+      for(const rows of [playback,livePlayback]){
+        const r=rows.find((r:{id:string})=>r.id===v.id);
+        expect(r?.passed).toBe(true);
+        expect(r.youtubeId).toBe(v.youtubeId);
+        for(const state of [r.before,r.after]){expect(state.paused).toBe(false);expect(state.adShowing).toBe(false);}
+        expect(r.after.time).toBeGreaterThan(r.before.time+0.5);
+      }
     }
   });
   it("entertainment sources are unique, recent, described and playable locally and publicly", () => {
