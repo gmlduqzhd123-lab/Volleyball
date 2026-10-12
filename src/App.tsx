@@ -1653,15 +1653,6 @@ export default function App() {
               <small>VOLLEYBALL FOR EVERYONE</small>
             </span>
           </a>
-          <button
-            className="menu-toggle"
-            aria-expanded={menu}
-            aria-controls="main-nav"
-            aria-label={menu ? "메뉴 닫기" : "메뉴 열기"}
-            onClick={() => setMenu((m) => !m)}
-          >
-            {menu ? <X /> : <Menu />}
-          </button>
           <nav
             id="main-nav"
             className={menu ? "open" : ""}
@@ -1686,6 +1677,23 @@ export default function App() {
               </a>
             ))}
           </nav>
+          <div className="header-actions">
+            <button type="button" className="app-chip install" data-ys-install="">
+              📲 <span className="chip-wide">앱 </span>설치
+            </button>
+            <button type="button" className="app-chip" data-qr="" aria-label="QR 코드로 접속">
+              📱 QR
+            </button>
+            <button
+              className="menu-toggle"
+              aria-expanded={menu}
+              aria-controls="main-nav"
+              aria-label={menu ? "메뉴 닫기" : "메뉴 열기"}
+              onClick={() => setMenu((m) => !m)}
+            >
+              {menu ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
       </header>
       <main
@@ -1721,7 +1729,10 @@ export default function App() {
           </div>
         </div>
         <div className="copyright">
-          <p>© 2026 엽쌤. All rights reserved.</p>
+          <p>
+            © 2026 엽쌤. All rights reserved. ·{" "}
+            <a className="hub-link" href="https://gmlduqzhd123-lab.github.io/YScode/">엽쌤의 다른 앱 보기 →</a>
+          </p>
           <p>유튜브 영상 등 외부 콘텐츠의 저작권은 각 원저작자에게 있습니다.</p>
         </div>
       </footer>
