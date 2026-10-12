@@ -6,3 +6,4 @@ test-results/
 *.tsbuildinfo
 research/
 artifacts/*video*.png
+artifacts/sharing*.png

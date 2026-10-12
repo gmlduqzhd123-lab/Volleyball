@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import ShareInstall from "./ShareInstall";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -1721,6 +1722,7 @@ export default function App() {
         {content}
       </main>
       <footer className="site-footer">
+        <ShareInstall />
         <div className="footer-inner">
           <div>
             <a className="brand" href="#/home">
@@ -1741,6 +1743,10 @@ export default function App() {
             <a href="#/editor">관리자 JSON 도구</a>
             <span>교사 배구 동호회 · MVP</span>
           </div>
+        </div>
+        <div className="copyright">
+          <p>© 2026 엽쌤. All rights reserved.</p>
+          <p>유튜브 영상 등 외부 콘텐츠의 저작권은 각 원저작자에게 있습니다.</p>
         </div>
       </footer>
     </>

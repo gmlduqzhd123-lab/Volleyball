@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "우리 모두 배구왕",
+  "short_name": "배구왕",
+  "description": "함께 배우고, 함께 뛰는 배구 입문 교실",
+  "lang": "ko",
+  "start_url": "./#/home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f5e8",
+  "theme_color": "#194a3a",
+  "icons": [
+    { "src": "icons/ball-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/ball-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

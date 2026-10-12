@@ -7,6 +7,9 @@ const mime = {
   ".js": "text/javascript",
   ".css": "text/css",
   ".json": "application/json",
+  ".webmanifest": "application/manifest+json",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
 };
 createServer(async (req, res) => {
   const url = new URL(req.url, "http://localhost");
