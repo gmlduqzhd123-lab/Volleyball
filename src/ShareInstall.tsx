@@ -59,7 +59,7 @@ export default function ShareInstall() {
   }
   async function share() {
     try {
-      await navigator.share({ title: "우리 모두 배구왕", text: "함께 배우고, 함께 뛰어요!", url: PUBLIC_APP_URL });
+      await navigator.share({ title: "우리 모두 배구왕", text: "배구, 오늘부터 우리 함께!", url: PUBLIC_APP_URL });
       setMessage("공유 창 사용을 마쳤어요.");
     } catch (error) {
       if ((error as Error).name !== "AbortError") setMessage("공유 창을 열지 못했어요. 링크 복사를 이용해 주세요.");

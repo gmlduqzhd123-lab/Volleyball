@@ -4,6 +4,21 @@ import jsQR from "jsqr";
 import { readFile } from "node:fs/promises";
 
 const url = "https://gmlduqzhd123-lab.github.io/Volleyball/";
+test("share metadata and approved image are available without JavaScript", async ({ request }) => {
+  const response=await request.get('http://127.0.0.1:5174/volleyball/');
+  expect(response.ok()).toBe(true);
+  const html=await response.text();
+  expect(html).toContain('property="og:title" content="우리 모두 배구왕 | 배구, 오늘부터 우리 함께!"');
+  expect(html).toContain(`property="og:url" content="${url}"`);
+  expect(html).toContain(`property="og:image" content="${url}social/volleyball-share-v2.png"`);
+  expect(html).toContain('property="og:image:width" content="1200"');
+  expect(html).toContain('property="og:image:height" content="630"');
+  const image=await request.get('http://127.0.0.1:5174/volleyball/social/volleyball-share-v2.png');
+  expect(image.ok()).toBe(true);
+  expect(image.headers()['content-type']).toContain('image/png');
+  const png=PNG.sync.read(await image.body());
+  expect([png.width,png.height]).toEqual([1200,630]);
+});
 async function openSharing(page: import("@playwright/test").Page) {
   await page.locator(".share-install > details > summary").click();
   await expect(page.getByAltText("우리 모두 배구왕 공개 사이트 QR코드")).toBeVisible();
@@ -55,7 +70,7 @@ test("native sharing payload, cancel and denied clipboard paths (simulated APIs)
   await page.goto("/");
   await openSharing(page);
   await page.getByRole("button", { name: "기기로 공유" }).click();
-  expect(await page.evaluate(() => (window as any).sharePayload)).toMatchObject({ title: "우리 모두 배구왕", url });
+  expect(await page.evaluate(() => (window as any).sharePayload)).toMatchObject({ title: "우리 모두 배구왕", text: "배구, 오늘부터 우리 함께!", url });
   await page.getByRole("button", { name: "링크 복사" }).click();
   await expect(page.locator(".share-status")).toContainText("자동 복사가 지원되지");
   await expect(page.getByRole("textbox", { name: "공유 링크" })).toHaveValue(url);
