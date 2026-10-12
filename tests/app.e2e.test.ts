@@ -168,7 +168,7 @@ test("entertainment tabs, search, retained sources and mobile controls", async (
     await page.setViewportSize({width, height: 844});
     await page.goto('/#/videos');
     await page.reload();
-    await expect(page.locator('.video-card')).toHaveCount(74);
+    await expect(page.locator('.video-card')).toHaveCount(84);
     await expect(page.locator('.tabs button')).toHaveText(['전체', '예능배구', '기초 영상', '프로팀 경기', '초등 배구']);
     await expect(page.getByRole('button', {name: '전체', exact: true})).toHaveAttribute('aria-pressed', 'true');
     for (const b of await page.locator('.tabs button').all()) {
@@ -191,10 +191,13 @@ test("entertainment tabs, search, retained sources and mobile controls", async (
     await page.getByRole('button', {name: '프로팀 경기', exact: true}).click();
     await expect(page.locator('.video-card')).toHaveCount(10);
     await page.getByRole('button', {name: '초등 배구', exact: true}).click();
-    await expect(page.locator('.video-card')).toHaveCount(0);
-    await expect(page.getByRole('heading', {name:'조건에 맞는 영상이 없어요'})).toBeVisible();
-    await page.getByRole('button', {name:'필터 초기화',exact:true}).click();
-    await expect(page.locator('.video-card')).toHaveCount(74);
+    await expect(page.locator('.video-card')).toHaveCount(10);
+    await expect(page.locator('.video-card').first()).toContainText('한국초등배구연맹(KEVF)');
+    await page.getByRole('textbox', {name:'영상 제목 검색'}).fill('신강');
+    await expect(page.locator('.video-card')).toHaveCount(4);
+    await page.getByRole('textbox', {name:'영상 제목 검색'}).fill('');
+    await page.getByRole('button', {name:'전체',exact:true}).click();
+    await expect(page.locator('.video-card')).toHaveCount(84);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
   }
   await page.goto('/#/video/entertainment-02');
@@ -208,6 +211,15 @@ test("entertainment tabs, search, retained sources and mobile controls", async (
   await page.goto('/#/videos');
   await page.getByRole('button',{name:'예능배구',exact:true}).click();
   await page.screenshot({path:'artifacts/entertainment-mobile.png',fullPage:false});
+  await page.goto('/#/video/elementary-01');
+  await expect(page.locator('main')).toContainText('업로드 2026-10-09');
+  await expect(page.locator('.video-detail-summary')).toContainText('속공');
+  await expect(page.locator('iframe')).toHaveCount(0);
+  await page.getByRole('button',{name:/플레이어 열기/}).click();
+  await expect(page.locator('iframe')).toHaveAttribute('src','https://www.youtube-nocookie.com/embed/NojNy4z140w?start=0');
+  await page.goto('/#/videos');
+  await page.getByRole('button',{name:'초등 배구',exact:true}).click();
+  await page.screenshot({path:'artifacts/elementary-videos-mobile.png',fullPage:false});
 });
 test("mobile 360px navigation, routes and no horizontal overflow", async ({
   page,

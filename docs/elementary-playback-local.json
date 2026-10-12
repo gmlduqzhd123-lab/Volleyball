@@ -1,0 +1,192 @@
+[
+  {
+    "id": "elementary-01",
+    "youtubeId": "NojNy4z140w",
+    "url": "http://127.0.0.1:5173/#/video/elementary-01",
+    "checkedAt": "2026-10-12T13:20:34.529Z",
+    "before": {
+      "adShowing": false,
+      "duration": 525.061,
+      "paused": false,
+      "time": 5.512114
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 525.061,
+      "paused": false,
+      "time": 29.99848
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-02",
+    "youtubeId": "h1yMfDgrRaw",
+    "url": "http://127.0.0.1:5173/#/video/elementary-02",
+    "checkedAt": "2026-10-12T13:20:34.579Z",
+    "before": {
+      "adShowing": false,
+      "duration": 767.001,
+      "paused": false,
+      "time": 5.038662
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 767.001,
+      "paused": false,
+      "time": 29.520924
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-03",
+    "youtubeId": "dPuH5d-eacc",
+    "url": "http://127.0.0.1:5173/#/video/elementary-03",
+    "checkedAt": "2026-10-12T13:20:34.624Z",
+    "before": {
+      "adShowing": false,
+      "duration": 836.061,
+      "paused": false,
+      "time": 4.193755
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 836.061,
+      "paused": false,
+      "time": 28.664914
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-04",
+    "youtubeId": "MbzP-RhfpWo",
+    "url": "http://127.0.0.1:5173/#/video/elementary-04",
+    "checkedAt": "2026-10-12T13:21:00.047Z",
+    "before": {
+      "adShowing": false,
+      "duration": 497.561,
+      "paused": false,
+      "time": 10.125047
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 497.561,
+      "paused": false,
+      "time": 18.646083
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-05",
+    "youtubeId": "3dVclHbFsIo",
+    "url": "http://127.0.0.1:5173/#/video/elementary-05",
+    "checkedAt": "2026-10-12T13:21:00.097Z",
+    "before": {
+      "adShowing": false,
+      "duration": 762.861,
+      "paused": false,
+      "time": 9.846507
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 762.861,
+      "paused": false,
+      "time": 18.368199
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-06",
+    "youtubeId": "Ao1BkVbpWvA",
+    "url": "http://127.0.0.1:5173/#/video/elementary-06",
+    "checkedAt": "2026-10-12T13:21:00.149Z",
+    "before": {
+      "adShowing": false,
+      "duration": 783.961,
+      "paused": false,
+      "time": 9.241675
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 783.961,
+      "paused": false,
+      "time": 17.771331
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-07",
+    "youtubeId": "SFG3qPDg6z4",
+    "url": "http://127.0.0.1:5173/#/video/elementary-07",
+    "checkedAt": "2026-10-12T13:21:51.212Z",
+    "before": {
+      "adShowing": false,
+      "duration": 631.201,
+      "paused": false,
+      "time": 5.804034
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 631.201,
+      "paused": false,
+      "time": 42.041165
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-08",
+    "youtubeId": "KdIH8P88Kl4",
+    "url": "http://127.0.0.1:5173/#/video/elementary-08",
+    "checkedAt": "2026-10-12T13:21:51.344Z",
+    "before": {
+      "adShowing": false,
+      "duration": 540.221,
+      "paused": false,
+      "time": 5.872739
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 540.221,
+      "paused": false,
+      "time": 42.182797
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-09",
+    "youtubeId": "CUoyeg9H1TA",
+    "url": "http://127.0.0.1:5173/#/video/elementary-09",
+    "checkedAt": "2026-10-12T13:21:51.512Z",
+    "before": {
+      "adShowing": false,
+      "duration": 551.681,
+      "paused": false,
+      "time": 5.525119
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 551.681,
+      "paused": false,
+      "time": 41.972765
+    },
+    "passed": true
+  },
+  {
+    "id": "elementary-10",
+    "youtubeId": "dtl4kEE9aOg",
+    "url": "http://127.0.0.1:5173/#/video/elementary-10",
+    "checkedAt": "2026-10-12T13:22:30.521Z",
+    "before": {
+      "adShowing": false,
+      "duration": 576.521,
+      "paused": false,
+      "time": 6.35005
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 576.521,
+      "paused": false,
+      "time": 29.075185
+    },
+    "passed": true
+  }
+]
