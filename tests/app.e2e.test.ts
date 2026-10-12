@@ -24,11 +24,11 @@ test("home, all main menus and no automatic iframe", async ({ page }) => {
   await expect(page.getByRole("heading", { name: /처음이어도/ })).toBeVisible();
   expect(await page.locator("iframe").count()).toBe(0);
   for (const [route, title] of [
-    ["videos", "우리들의 경기 영상"],
-    ["beginner", "배구 왕초보 교실"],
+    ["videos", "배구 영상"],
+    ["beginner", "왕초보 배구 교실"],
     ["skills", "배구 기술 교실"],
     ["positions", "코트 위, 나의 역할"],
-    ["pro", "프로배구 영상관"],
+    ["pro", "배구 영상"],
   ]) {
     await page.goto(`/#/${route}`);
     await expect(
@@ -36,6 +36,37 @@ test("home, all main menus and no automatic iframe", async ({ page }) => {
     ).toBeVisible();
   }
 });
+test("five renamed navigation links work on desktop and mobile", async ({ page }) => {
+  const labels=['홈','배구 영상','왕초보 배구 교실','배구 기술 교실','포지션 배우기'];
+  const routes=['home','videos','beginner','skills','positions'];
+  for (const width of [1440,390,360]) {
+    await page.setViewportSize({width,height:844});
+    await page.goto('/#/home');
+    for(let i=0;i<labels.length;i++){
+      if(width<600)await page.getByRole('button',{name:'메뉴 열기',exact:true}).click();
+      const nav=page.locator('#main-nav');
+      await expect(nav.getByRole('link')).toHaveText(labels);
+      await nav.getByRole('link',{name:labels[i],exact:true}).click();
+      await expect(page).toHaveURL(new RegExp('#/'+routes[i]+'$'));
+      await expect(page).toHaveTitle(labels[i]+' | 우리 모두 배구왕');
+      await expect(nav.locator('a').nth(i)).toHaveAttribute('aria-current','page');
+      if(i===1)await expect(page.getByRole('heading',{name:'배구 영상',exact:true})).toBeVisible();
+      if(i===2)await expect(page.getByRole('heading',{name:'왕초보 배구 교실',exact:true})).toBeVisible();
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+    }
+    await page.goto('/#/pro');
+    await expect(page.getByRole('heading',{name:'배구 영상',exact:true})).toBeVisible();
+    await expect(page.getByRole('button',{name:'프로팀 경기',exact:true})).toHaveAttribute('aria-pressed','true');
+    await expect(page.locator('.video-card')).toHaveCount(10);
+  }
+  await page.setViewportSize({width:1440,height:844});
+  await page.goto('/#/videos');
+  await page.screenshot({path:'artifacts/navigation-videos-desktop.png'});
+  await page.setViewportSize({width:390,height:844});
+  await page.getByRole('button',{name:'메뉴 열기',exact:true}).click();
+  await page.screenshot({path:'artifacts/navigation-videos-mobile.png'});
+});
+
 test("terms, rules, lesson detail and keyboard court rotation", async ({
   page,
 }) => {

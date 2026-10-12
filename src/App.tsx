@@ -39,11 +39,10 @@ const officialRules =
   "https://www.fivb.com/wp-content/uploads/2025/01/FIVB-Volleyball_Rules2025_2028-EN-v05.pdf";
 const nav = [
   ["home", "홈"],
-  ["videos", "우리들의 경기 영상"],
-  ["beginner", "배구 왕초보 교실"],
+  ["videos", "배구 영상"],
+  ["beginner", "왕초보 배구 교실"],
   ["skills", "배구 기술 교실"],
   ["positions", "포지션 배우기"],
-  ["pro", "프로배구 영상관"],
 ];
 function useData<T>(
   name: string,
@@ -314,7 +313,7 @@ function Home({
             <LinkButton to="beginner">배구 처음 배우기</LinkButton>
             <a className="text-link" href="#/videos">
               <CirclePlay size={20} />
-              우리들의 경기 보기
+              배구 영상 보기
             </a>
           </div>
           <div className="hero-bottom">
@@ -335,7 +334,7 @@ function Home({
       <div className="values-strip">
         <span>
           <Users size={19} />
-          <b>함께 뛰고</b> 우리들의 경기 기록
+          <b>함께 보고</b> 다양한 배구 영상
         </span>
         <span>
           <BookOpen size={19} />
@@ -364,10 +363,10 @@ function Home({
             <p>
               낯선 용어와 규칙을
               <br />
-              쉽게 알아보는 왕초보 교실
+              쉽게 알아보는 왕초보 배구 교실
             </p>
             <span className="card-link">
-              왕초보 교실 가기
+              왕초보 배구 교실 가기
               <ArrowUpRight size={20} />
             </span>
           </a>
@@ -432,10 +431,10 @@ function Home({
                 <p>
                   아직 등록된 동호회 영상이 없어요.
                   <br />
-                  경기 영상이 준비되면 날짜와 포지션으로 쉽게 찾아보세요.
+                  배구 영상을 날짜와 카테고리로 쉽게 찾아보세요.
                 </p>
                 <a href="#/videos" className="text-link">
-                  우리들의 영상관 둘러보기
+                  배구 영상 둘러보기
                   <ArrowRight size={18} />
                 </a>
               </div>
@@ -488,54 +487,30 @@ function Videos({
   pro?: boolean;
 }) {
   const [search, setSearch] = useState(""),
-    [category, setCategory] = useState("all"),
+    [category, setCategory] = useState(pro ? "pro" : "all"),
     [position, setPosition] = useState("all");
   const list = filterVideos(
     resource.data,
     search,
-    pro ? "pro" : category,
+    category,
     position,
   );
   const filtered = Boolean(
-    search || position !== "all" || (!pro && category !== "all"),
+    search || position !== "all" || category !== "all",
   );
   return (
     <>
       <PageTitle
-        eyebrow={pro ? "WATCH & LEARN" : "OUR MATCHES"}
-        title={pro ? "프로배구 영상관" : "우리들의 경기 영상"}
-        description={
-          pro
-            ? "좋은 플레이를 보고, 우리 코트에서 한 번 더. 공식 채널의 확인된 영상을 모아요."
-            : "우리의 랠리, 우리의 추억. 보고 싶은 경기를 찾아보세요."
-        }
+        eyebrow="VOLLEYBALL VIDEOS"
+        title="배구 영상"
+        description="예능배구부터 기초 영상, 프로팀 경기와 초등 배구까지. 보고 싶은 영상을 찾아보세요."
       />
-      {pro && (
-        <div className="notice">
-          <ShieldCheck size={20} />
-          <div>
-            공식 자료부터 확인해요.{" "}
-            <a
-              href="https://www.fivb.com/volleyball/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              FIVB 공식 배구 자료
-              <ExternalLink size={14} />
-            </a>
-            <p>
-              프로 영상은 관리자가 출처와 임베드 가능 여부를 확인한 뒤
-              등록합니다.
-            </p>
-          </div>
-        </div>
-      )}
       <div className="filter-bar">
         <label className="search-field">
           <Search size={19} />
           <input
             aria-label="영상 제목 검색"
-            placeholder="어떤 경기를 찾고 있나요?"
+            placeholder="어떤 영상을 찾고 있나요?"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -555,7 +530,6 @@ function Videos({
           </select>
         </label>
       </div>
-      {!pro && (
         <div className="tabs video-category-tabs" aria-label="영상 카테고리">
           {videoCategoryTabs.map(
             ([id, name]) => (
@@ -570,7 +544,6 @@ function Videos({
             ),
           )}
         </div>
-      )}
       <div className="result-count">
         총 <b>{list.length}</b>개 영상<span>최신 날짜순</span>
       </div>
@@ -693,7 +666,7 @@ function Beginner({
     <>
       <PageTitle
         eyebrow="VOLLEYBALL, MADE SIMPLE"
-        title="배구 왕초보 교실"
+        title="왕초보 배구 교실"
         description="처음 듣는 말도, 헷갈리는 규칙도. 하나씩 알아가면 배구가 더 재미있어져요."
       />
       <div className="learning-path">
@@ -1611,7 +1584,7 @@ export default function App() {
     /* Invalid URL becomes a not-found view. */
   }
   useEffect(() => {
-    document.title = `${nav.find((n) => n[0] === page)?.[1] || "배구 배우기"} | 우리 모두 배구왕`;
+    document.title = `${nav.find((n) => n[0] === (page === "pro" ? "videos" : page))?.[1] || "배구 배우기"} | 우리 모두 배구왕`;
   }, [page]);
   let content: React.ReactNode;
   switch (page) {
@@ -1619,10 +1592,10 @@ export default function App() {
       content = <Home videos={videos} skills={skills} />;
       break;
     case "videos":
-      content = <Videos resource={videos} />;
+      content = <Videos key="videos" resource={videos} />;
       break;
     case "pro":
-      content = <Videos resource={videos} pro />;
+      content = <Videos key="pro" resource={videos} pro />;
       break;
     case "video":
       content = <VideoDetail key={id} resource={videos} id={id} />;
@@ -1698,14 +1671,16 @@ export default function App() {
               <a
                 key={path}
                 href={`#/${path}`}
+                onClick={() => setMenu(false)}
                 className={
                   page === path ||
+                  (path === "videos" && page === "pro") ||
                   (path === "skills" && page === "skill") ||
                   (path === "videos" && page === "video")
                     ? "active"
                     : ""
                 }
-                aria-current={page === path ? "page" : undefined}
+                aria-current={(page === "pro" ? "videos" : page) === path ? "page" : undefined}
               >
                 {label}
               </a>
