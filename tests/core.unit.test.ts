@@ -73,6 +73,22 @@ describe("metadata validation and filtering", () => {
   });
 });
 describe("learning data", () => {
+  it("catalog has unique recent sources, descriptions, successful playback and complete skill links", () => {
+    const videos = validateVideos(JSON.parse(readFileSync("public/data/videos.json", "utf8")));
+    const playback = JSON.parse(readFileSync("docs/video-playback-local.json", "utf8"));
+    const skills = JSON.parse(readFileSync("public/data/skills.json", "utf8"));
+    expect(videos).toHaveLength(64);
+    expect(new Set(videos.map(v => v.youtubeId)).size).toBe(videos.length);
+    for(const v of videos) {
+      expect(v.uploadDate! >= "2023-10-12" && v.uploadDate! <= "2026-10-12").toBe(true);
+      expect(v.channel?.length).toBeGreaterThan(0);
+      expect(v.summary?.length).toBeGreaterThan(20);
+      expect(parseYoutubeUrl(v.sourceUrl!)).toBe(v.youtubeId);
+      expect(playback.find((r: {id:string; passed:boolean}) => r.id === v.id)?.passed).toBe(true);
+      if(v.category === "skill") expect(skills.filter((s: {videoIds:string[]}) => s.videoIds.includes(v.id))).toHaveLength(1);
+    }
+    for(const s of skills) for(const id of s.videoIds) expect(videos.some(v => v.id === id)).toBe(true);
+  });
   it("rotates clockwise 2 to 1 and returns after six", () => {
     expect(rotatedPlayers(1)).toEqual([2, 3, 4, 5, 6, 1]);
     expect(rotatedPlayers(6)).toEqual(rotatedPlayers(0));

@@ -844,8 +844,10 @@ select {
   overflow-wrap: anywhere;
 }
 .video-copy p {
-  font-size: 11px;
+  font-size: 12px;
 }
+.video-copy .video-summary { font-size: 14px; line-height: 1.65; color: #525b50; }
+.video-detail-summary { max-width: 900px; line-height: 1.8; margin-bottom: 16px; }
 .tags {
   display: flex;
   flex-wrap: wrap;

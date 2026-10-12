@@ -135,12 +135,28 @@ test("bad JSON has recovery and other lessons still work", async ({ page }) => {
     "영상 목록을 불러올 수 없습니다",
   );
   await page.unroute("**/data/videos.json");
+  await page.route("**/data/videos.json", (r) => r.fulfill({ json: [] }));
   await page.getByRole("button", { name: "다시 시도" }).click();
   await expect(
     page.getByRole("heading", { name: "우리의 첫 경기를 기다리고 있어요" }),
   ).toBeVisible();
   await page.goto("/#/skills");
   await expect(page.locator(".skill-card")).toHaveCount(6);
+});
+test("published catalog, technical links and upload/match dates", async ({ page }) => {
+  await page.goto("/#/pro");
+  await expect(page.locator(".video-card")).toHaveCount(10);
+  await expect(page.locator(".video-card").first()).toContainText("SBS Sports");
+  await expect(page.locator(".video-card").first()).toContainText("업로드");
+  expect(await page.locator("iframe").count()).toBe(0);
+  for (const [id, count] of [["underhand-pass", 10], ["overhand-pass", 10], ["serve", 10], ["spike", 10], ["blocking", 6], ["dig", 8]] as const) {
+    await page.goto(`/#/skill/${id}`);
+    await expect(page.locator(".video-card")).toHaveCount(count);
+  }
+  await page.goto("/#/video/pro-01");
+  await expect(page.locator("main")).toContainText("업로드 2025-04-03");
+  await expect(page.locator("main")).toContainText("경기 2025-04-02");
+  await expect(page.locator(".video-detail-summary")).not.toBeEmpty();
 });
 test("mobile 360px navigation, routes and no horizontal overflow", async ({
   page,

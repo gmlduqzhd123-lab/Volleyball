@@ -265,10 +265,13 @@ function VideoCards({ videos }: { videos: Video[] }) {
             <span className="eyebrow">{categoryNames[v.category]}</span>
             <h3>{v.title}</h3>
             <p>
-              {v.date.replaceAll("-", ".")}{" "}
+              {v.channel && <>{v.channel}<br /></>}
+              {v.uploadDate ? `업로드 ${v.uploadDate.replaceAll("-", ".")}` : v.date.replaceAll("-", ".")}{" "}
               {v.startSeconds > 0 && `· ${v.startSeconds}초부터`}
             </p>
+            {v.summary && <p className="video-summary">{v.summary}</p>}
             <div className="tags">
+              {(v.skillTags ?? []).map(t => <span key={t}>{t}</span>)}
               {v.positionTags.map((t) => (
                 <span key={t}>{positionNames[t]}</span>
               ))}
@@ -620,8 +623,11 @@ function VideoDetail({
       <PageTitle
         eyebrow={categoryNames[v.category]}
         title={v.title}
-        description={`${v.date} · ${v.positionTags.map((t) => positionNames[t]).join(" / ") || "포지션 태그 없음"}`}
+        description={v.uploadDate ? `${v.channel ?? ""} · 업로드 ${v.uploadDate}${v.matchDate ? ` · 경기 ${v.matchDate}` : ""}` : `${v.date} · ${v.positionTags.map((t) => positionNames[t]).join(" / ") || "포지션 태그 없음"}`}
       />
+      {v.matchInfo && <p>{v.matchInfo}</p>}
+      {v.summary && <p className="video-detail-summary">{v.summary}</p>}
+      {!!v.skillTags?.length && <div className="tags">{v.skillTags.map(t => <span key={t}>{t}</span>)}</div>}
       <div className="player">
         {play ? (
           <iframe
@@ -1617,7 +1623,7 @@ export default function App() {
       content = <Videos resource={videos} pro />;
       break;
     case "video":
-      content = <VideoDetail resource={videos} id={id} />;
+      content = <VideoDetail key={id} resource={videos} id={id} />;
       break;
     case "beginner":
       content = <Beginner terms={terms} rules={rules} />;

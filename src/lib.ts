@@ -6,6 +6,13 @@ export type Video = {
   category: "club" | "skill" | "pro";
   positionTags: string[];
   startSeconds: number;
+  uploadDate?: string;
+  matchDate?: string;
+  channel?: string;
+  summary?: string;
+  sourceUrl?: string;
+  skillTags?: string[];
+  matchInfo?: string;
 };
 export type Term = {
   id: string;
@@ -111,6 +118,11 @@ export function validateVideos(data: unknown): Video[] {
       row.positionTags.some((t) => !Object.keys(positionNames).includes(t)) ||
       !Number.isInteger(row.startSeconds) ||
       row.startSeconds < 0
+      || (row.uploadDate !== undefined && !validDate(row.uploadDate))
+      || (row.matchDate !== undefined && !validDate(row.matchDate))
+      || [row.channel, row.summary, row.sourceUrl, row.matchInfo].some(value => value !== undefined && typeof value !== "string")
+      || (row.sourceUrl !== undefined && parseYoutubeUrl(row.sourceUrl) !== row.youtubeId)
+      || (row.skillTags !== undefined && (!Array.isArray(row.skillTags) || row.skillTags.some(tag => typeof tag !== "string")))
     )
       throw new Error("영상 항목을 확인해 주세요.");
     ids.add(row.id);
@@ -126,11 +138,11 @@ export function filterVideos(
   return videos
     .filter(
       (v) =>
-        v.title.toLowerCase().includes(search.trim().toLowerCase()) &&
+        `${v.title} ${v.channel ?? ""} ${v.summary ?? ""} ${(v.skillTags ?? []).join(" ")}`.toLowerCase().includes(search.trim().toLowerCase()) &&
         (category === "all" || v.category === category) &&
         (position === "all" || v.positionTags.includes(position)),
     )
-    .sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
+    .sort((a, b) => (b.uploadDate ?? b.date).localeCompare(a.uploadDate ?? a.date) || a.id.localeCompare(b.id));
 }
 // Fixed court positions 1..6; moving clockwise sends 2 → 1 → 6 → 5 → 4 → 3 → 2.
 export function rotatedPlayers(turn: number): number[] {

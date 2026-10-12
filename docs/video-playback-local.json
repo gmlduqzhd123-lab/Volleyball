@@ -1,0 +1,1090 @@
+[
+  {
+    "id": "underhand-01",
+    "youtubeId": "a7o-VFpxiZA",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:08:57.442Z",
+    "before": {
+      "duration": 45.081,
+      "paused": false,
+      "time": 0.067063
+    },
+    "after": {
+      "duration": 45.081,
+      "paused": false,
+      "time": 24.638081
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-02",
+    "youtubeId": "zdyvPM1bM04",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:08:57.566Z",
+    "before": {
+      "duration": 103,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 102.701,
+      "paused": false,
+      "time": 23.085092
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-03",
+    "youtubeId": "NJOHXIj8lbU",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:08:57.722Z",
+    "before": {
+      "duration": 36,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 36.361,
+      "paused": false,
+      "time": 22.651367
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-04",
+    "youtubeId": "lZzWmMhPDCQ",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:08:57.910Z",
+    "before": {
+      "duration": 38,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 38.461,
+      "paused": false,
+      "time": 21.060341
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-05",
+    "youtubeId": "FCY8A6qEPKE",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:09:46.279Z",
+    "before": {
+      "duration": 38,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 38.161,
+      "paused": false,
+      "time": 17.383148
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-06",
+    "youtubeId": "0g31AAjBbxo",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:09:46.444Z",
+    "before": {
+      "duration": 30,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 30.181,
+      "paused": false,
+      "time": 15.607628
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-07",
+    "youtubeId": "oweOC03F5-Y",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:09:46.593Z",
+    "before": {
+      "duration": 42,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 41.581,
+      "paused": false,
+      "time": 16.13058
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-08",
+    "youtubeId": "JZRyHL1mQ88",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:09:46.749Z",
+    "before": {
+      "duration": 40,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 40.141,
+      "paused": false,
+      "time": 16.202385
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-09",
+    "youtubeId": "XjGcTf8ckyM",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:10:14.534Z",
+    "before": {
+      "duration": 39,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 38.601,
+      "paused": false,
+      "time": 18.885073
+    },
+    "passed": true
+  },
+  {
+    "id": "underhand-10",
+    "youtubeId": "txTQYs740kg",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:10:14.689Z",
+    "before": {
+      "duration": 62,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 62.361,
+      "paused": false,
+      "time": 19.279727
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-01",
+    "youtubeId": "13f3InWTjQw",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:10:14.821Z",
+    "before": {
+      "duration": 100,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 99.601,
+      "paused": false,
+      "time": 18.826921
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-02",
+    "youtubeId": "fk3FC2KuAnQ",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:10:14.963Z",
+    "before": {
+      "duration": 32,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 31.821,
+      "paused": false,
+      "time": 17.732469
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-03",
+    "youtubeId": "f7chd4aQ0Bc",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:10:37.716Z",
+    "before": {
+      "duration": 39,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 38.681,
+      "paused": false,
+      "time": 12.492913
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-04",
+    "youtubeId": "_WWkENer3es",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:10:37.836Z",
+    "before": {
+      "duration": 49,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 48.921,
+      "paused": false,
+      "time": 11.799098
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-05",
+    "youtubeId": "HSbA3pmIc_s",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:10:37.962Z",
+    "before": {
+      "duration": 37,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 36.781,
+      "paused": false,
+      "time": 11.37821
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-06",
+    "youtubeId": "egEym1XEzYc",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:10:38.093Z",
+    "before": {
+      "duration": 36,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 35.901,
+      "paused": false,
+      "time": 10.833836
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-07",
+    "youtubeId": "SMEgYn10aWk",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:03.146Z",
+    "before": {
+      "duration": 48,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 47.941,
+      "paused": false,
+      "time": 14.568991
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-08",
+    "youtubeId": "2Ur7_dBcIZo",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:03.300Z",
+    "before": {
+      "duration": 39,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 38.841,
+      "paused": false,
+      "time": 16.038112
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-09",
+    "youtubeId": "JelzqjeO-Vg",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:03.460Z",
+    "before": {
+      "duration": 61,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 60.801,
+      "paused": false,
+      "time": 15.435334
+    },
+    "passed": true
+  },
+  {
+    "id": "overhand-10",
+    "youtubeId": "ZXxbLQmbRQ8",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:03.602Z",
+    "before": {
+      "duration": 38,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 38.341,
+      "paused": false,
+      "time": 15.238
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-01",
+    "youtubeId": "m9_AYsKxFZY",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:24.432Z",
+    "before": {
+      "duration": 62.761,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 62.761,
+      "paused": false,
+      "time": 12.911464
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-02",
+    "youtubeId": "ATM7tb7ncfg",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:24.573Z",
+    "before": {
+      "duration": 40,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 40.361,
+      "paused": false,
+      "time": 12.252546
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-03",
+    "youtubeId": "j_1RLXLAszo",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:24.723Z",
+    "before": {
+      "duration": 71,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 70.821,
+      "paused": false,
+      "time": 11.877422
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-04",
+    "youtubeId": "9cA7lcWduuY",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:24.865Z",
+    "before": {
+      "duration": 59,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 58.621,
+      "paused": false,
+      "time": 10.760404
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-05",
+    "youtubeId": "HnKARjP8x3o",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:49.237Z",
+    "before": {
+      "duration": 36,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 36.241,
+      "paused": false,
+      "time": 14.038145
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-06",
+    "youtubeId": "8kojqMjU42k",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:49.387Z",
+    "before": {
+      "duration": 36,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 36.161,
+      "paused": false,
+      "time": 14.134485
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-07",
+    "youtubeId": "G9BT8mrRDsE",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:49.511Z",
+    "before": {
+      "duration": 35,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 34.941,
+      "paused": false,
+      "time": 13.362599
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-08",
+    "youtubeId": "WDiZfLFc_fI",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:11:49.649Z",
+    "before": {
+      "duration": 63,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 62.881,
+      "paused": false,
+      "time": 12.900083
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-09",
+    "youtubeId": "1479-lTd8Zk",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:12:08.043Z",
+    "before": {
+      "duration": 41,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 41.121,
+      "paused": false,
+      "time": 12.162742
+    },
+    "passed": true
+  },
+  {
+    "id": "serve-10",
+    "youtubeId": "Gi1SJnJdBSI",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:12:08.198Z",
+    "before": {
+      "duration": 55,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 54.601,
+      "paused": false,
+      "time": 12.164886
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-01",
+    "youtubeId": "Tbt4JMPFhpA",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:12:08.358Z",
+    "before": {
+      "duration": 59,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 58.621,
+      "paused": false,
+      "time": 10.551503
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-02",
+    "youtubeId": "6pAexe_aJW8",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:12:08.510Z",
+    "before": {
+      "duration": 59,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 58.501,
+      "paused": false,
+      "time": 11.010353
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-03",
+    "youtubeId": "Bpgs0YtGFwo",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:12:36.016Z",
+    "before": {
+      "duration": 51,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 50.681,
+      "paused": false,
+      "time": 12.891897
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-04",
+    "youtubeId": "ZQx00PqKfww",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:12:36.153Z",
+    "before": {
+      "duration": 61,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 60.861,
+      "paused": false,
+      "time": 12.852985
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-05",
+    "youtubeId": "Ra-tXUFnY0s",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:12:36.302Z",
+    "before": {
+      "duration": 42,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 42.421,
+      "paused": false,
+      "time": 12.281985
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-06",
+    "youtubeId": "0ax8hQMWcCc",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:12:36.443Z",
+    "before": {
+      "duration": 36,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 35.721,
+      "paused": false,
+      "time": 11.786069
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-07",
+    "youtubeId": "--zCJt0285g",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:13:06.182Z",
+    "before": {
+      "duration": 34,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 34.361,
+      "paused": false,
+      "time": 19.656725
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-08",
+    "youtubeId": "RJwo6L5Y2wM",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:13:06.316Z",
+    "before": {
+      "duration": 47,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 46.741,
+      "paused": false,
+      "time": 19.324303
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-09",
+    "youtubeId": "yVSTSoYl-ec",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:13:06.462Z",
+    "before": {
+      "duration": 44,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 44.261,
+      "paused": false,
+      "time": 18.62389
+    },
+    "passed": true
+  },
+  {
+    "id": "blocking-01",
+    "youtubeId": "2mIsC4civx4",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:13:06.612Z",
+    "before": {
+      "duration": 73,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 72.981,
+      "paused": false,
+      "time": 18.565489
+    },
+    "passed": true
+  },
+  {
+    "id": "blocking-02",
+    "youtubeId": "uvDjblqTXHk",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:13:49.231Z",
+    "before": {
+      "duration": 72,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 72.341,
+      "paused": false,
+      "time": 34.555303
+    },
+    "passed": true
+  },
+  {
+    "id": "blocking-03",
+    "youtubeId": "BAMxz_5eq70",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:13:49.372Z",
+    "before": {
+      "duration": 335.881,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 335.881,
+      "paused": false,
+      "time": 34.085147
+    },
+    "passed": true
+  },
+  {
+    "id": "blocking-04",
+    "youtubeId": "A88IeIk8G_0",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:13:49.529Z",
+    "before": {
+      "duration": 320,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 320.121,
+      "paused": false,
+      "time": 33.375637
+    },
+    "passed": true
+  },
+  {
+    "id": "blocking-05",
+    "youtubeId": "YscpR9Quf5A",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:13:49.697Z",
+    "before": {
+      "duration": 274.941,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 274.941,
+      "paused": false,
+      "time": 33.042064
+    },
+    "passed": true
+  },
+  {
+    "id": "blocking-06",
+    "youtubeId": "mFnm7CD7vgY",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:14:37.555Z",
+    "before": {
+      "duration": 397,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 396.901,
+      "paused": false,
+      "time": 41.162018
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-01",
+    "youtubeId": "ykwayM7mpFU",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:14:37.724Z",
+    "before": {
+      "duration": 314,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 313.581,
+      "paused": false,
+      "time": 40.474796
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-03",
+    "youtubeId": "vBPsx7J78ow",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:14:38.033Z",
+    "before": {
+      "duration": 449,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 449.161,
+      "paused": false,
+      "time": 39.681865
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-04",
+    "youtubeId": "ypGyda3d41o",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:15:11.869Z",
+    "before": {
+      "duration": 695,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 695.461,
+      "paused": false,
+      "time": 23.1906
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-05",
+    "youtubeId": "b9EVA7q5ocU",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:15:12.033Z",
+    "before": {
+      "duration": 308,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 307.741,
+      "paused": false,
+      "time": 22.6892
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-06",
+    "youtubeId": "u8ljpMRzLp4",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:15:12.221Z",
+    "before": {
+      "duration": 569,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 568.541,
+      "paused": false,
+      "time": 22.337174
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-07",
+    "youtubeId": "lNOhHi30X7E",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:15:12.358Z",
+    "before": {
+      "duration": 565,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 565.281,
+      "paused": false,
+      "time": 21.974153
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-08",
+    "youtubeId": "FkIfgrWIOrQ",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:16:46.963Z",
+    "before": {
+      "duration": 301,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 300.581,
+      "paused": false,
+      "time": 73.420648
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-01",
+    "youtubeId": "ZwY_DaHkTfU",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:16:47.102Z",
+    "before": {
+      "duration": 615,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 614.741,
+      "paused": false,
+      "time": 72.913206
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-02",
+    "youtubeId": "Q-QWo65F15U",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:16:47.259Z",
+    "before": {
+      "duration": 393,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 393.021,
+      "paused": false,
+      "time": 72.363767
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-03",
+    "youtubeId": "Luc2iggnhi0",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:16:47.415Z",
+    "before": {
+      "duration": 410,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 409.541,
+      "paused": false,
+      "time": 71.710723
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-04",
+    "youtubeId": "86eCodRsT6I",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:17:59.701Z",
+    "before": {
+      "duration": 131,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 130.961,
+      "paused": false,
+      "time": 66.453596
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-05",
+    "youtubeId": "UAPvQsQ4TD0",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:17:59.900Z",
+    "before": {
+      "duration": 1099,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 1099.461,
+      "paused": false,
+      "time": 66.054712
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-06",
+    "youtubeId": "OsLYNHjG-sc",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:18:00.065Z",
+    "before": {
+      "duration": 808,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 808.101,
+      "paused": false,
+      "time": 65.613425
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-07",
+    "youtubeId": "pXBnRyZWZ2M",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:18:00.231Z",
+    "before": {
+      "duration": 579,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 579.061,
+      "paused": false,
+      "time": 65.260293
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-08",
+    "youtubeId": "N4o4KIi2Fr0",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:19:02.462Z",
+    "before": {
+      "duration": 599,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 598.621,
+      "paused": false,
+      "time": 57.213108
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-09",
+    "youtubeId": "d-rxfFZLKN0",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:19:02.637Z",
+    "before": {
+      "duration": 370,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 370.161,
+      "paused": false,
+      "time": 56.811159
+    },
+    "passed": true
+  },
+  {
+    "id": "pro-10",
+    "youtubeId": "Rt8WAfIqoRI",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:19:02.798Z",
+    "before": {
+      "duration": 667.081,
+      "paused": false,
+      "time": 0.018611
+    },
+    "after": {
+      "duration": 667.081,
+      "paused": false,
+      "time": 56.752996
+    },
+    "passed": true
+  },
+  {
+    "id": "dig-02",
+    "youtubeId": "xbf8L3PhFg4",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:23:49.728Z",
+    "before": {
+      "duration": 36,
+      "paused": false,
+      "time": 0
+    },
+    "after": {
+      "duration": 35.721,
+      "paused": false,
+      "time": 16.551771
+    },
+    "passed": true
+  },
+  {
+    "id": "spike-10",
+    "youtubeId": "Nj3EIFbeYIU",
+    "environment": "local Windows Chrome",
+    "checkedAt": "2026-10-12T11:24:05.885Z",
+    "before": {
+      "duration": 50.641,
+      "paused": false,
+      "time": 0.040632
+    },
+    "after": {
+      "duration": 50.641,
+      "paused": false,
+      "time": 12.11641
+    },
+    "passed": true
+  }
+]
