@@ -28,6 +28,7 @@ import {
   filterVideos,
   parseYoutubeUrl,
   positionNames,
+  videoPositionTags,
   quizScore,
   validDate,
   validateLearning,
@@ -272,7 +273,7 @@ function VideoCards({ videos }: { videos: Video[] }) {
             {v.summary && <p className="video-summary">{v.summary}</p>}
             <div className="tags">
               {(v.skillTags ?? []).map(t => <span key={t}>{t}</span>)}
-              {v.positionTags.map((t) => (
+              {videoPositionTags(v).map((t) => (
                 <span key={t}>{positionNames[t]}</span>
               ))}
             </div>
@@ -515,8 +516,9 @@ function Videos({
           />
         </label>
         <label className="select-field">
-          포지션
+          포지션 (9인제)
           <select
+            aria-label="포지션 (9인제)"
             value={position}
             onChange={(e) => setPosition(e.target.value)}
           >
@@ -529,6 +531,7 @@ function Videos({
           </select>
         </label>
       </div>
+      <p className="muted nine-position-filter-note">9인제 학습 역할로 영상을 찾아요. 6인제 영상도 관련 역할로 묶어 보여주며, 원본 영상의 경기 방식과 전문 역할은 그대로예요.</p>
         <div className="tabs video-category-tabs" aria-label="영상 카테고리">
           {videoCategoryTabs.map(
             ([id, name]) => (
@@ -597,8 +600,9 @@ function VideoDetail({
       <PageTitle
         eyebrow={categoryNames[v.category]}
         title={v.title}
-        description={v.uploadDate ? `${v.channel ?? ""} · 업로드 ${v.uploadDate}${v.matchDate ? ` · 경기 ${v.matchDate}` : ""}` : `${v.date} · ${v.positionTags.map((t) => positionNames[t]).join(" / ") || "포지션 태그 없음"}`}
+        description={v.uploadDate ? `${v.channel ?? ""} · 업로드 ${v.uploadDate}${v.matchDate ? ` · 경기 ${v.matchDate}` : ""}` : `${v.date} · ${videoPositionTags(v).map((t) => positionNames[t]).join(" / ") || "포지션 태그 없음"}`}
       />
+      {!!v.positionTags.length && <p className="muted">9인제 학습 역할: {videoPositionTags(v).map((t) => positionNames[t]).join(" / ")}. 원본 영상이 6인제인 경우에도 관련 학습 역할로 연결해 보여줘요.</p>}
       {v.matchInfo && <p>{v.matchInfo}</p>}
       {v.summary && <p className="video-detail-summary">{v.summary}</p>}
       {!!v.skillTags?.length && <div className="tags">{v.skillTags.map(t => <span key={t}>{t}</span>)}</div>}
@@ -1399,7 +1403,7 @@ function Editor({ videos }: { videos: Resource<Video> }) {
             </select>
           </label>
           <fieldset>
-            <legend>포지션 태그 · 여러 개 선택 가능</legend>
+            <legend>9인제 학습 역할 태그 · 여러 개 선택 가능</legend>
             {Object.entries(positionNames).map(([id, name]) => (
               <label className="checkbox-label" key={id}>
                 <input

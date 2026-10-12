@@ -1,5 +1,41 @@
 import { test, expect } from '@playwright/test';
 
+test('nine-player video position filters combine categories and search without losing videos', async ({ page }) => {
+  const mapping: Record<string,string> = {setter:'setter',outside:'left',opposite:'right',middle:'center',libero:'defense',left:'left',right:'right',center:'center',defense:'defense'};
+  for (const width of [1440,390,360]) {
+    await page.setViewportSize({width,height:900});
+    await page.goto('/#/videos');
+    await page.reload();
+    const data=await (await page.request.get('/data/videos.json')).json();
+    const select=page.getByLabel('포지션 (9인제)',{exact:true});
+    await expect(select.locator('option')).toHaveText(['모든 포지션','세터','레프트','라이트','센터','수비 담당']);
+    await expect(page.locator('.video-card')).toHaveCount(84);
+    for(const role of ['setter','left','right','center','defense']){
+      await select.selectOption(role);
+      const expected=data.filter((v:any)=>v.positionTags.some((t:string)=>mapping[t]===role));
+      await expect(page.locator('.video-card')).toHaveCount(expected.length);
+      expect((await page.locator('.video-card .tags').allTextContents()).join(' ')).not.toMatch(/리베로|아웃사이드 히터|아포짓|미들 블로커/);
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    }
+    await page.getByRole('button',{name:'기초 영상',exact:true}).click();
+    const defense=data.filter((v:any)=>v.category==='skill'&&v.positionTags.includes('libero'));
+    await expect(page.locator('.video-card')).toHaveCount(defense.length);
+    await page.getByRole('textbox',{name:'영상 제목 검색'}).fill(defense[0].title);
+    await expect(page.locator('.video-card')).toHaveCount(1);
+    await page.locator('.video-card').click();
+    await expect(page.locator('.page-title')).toContainText(defense[0].title);
+    await expect(page.getByText('9인제 학습 역할:',{exact:false})).toContainText('수비 담당');
+    await expect(page.locator('iframe')).toHaveCount(0);
+  }
+  await page.goto('/#/editor');
+  await page.getByLabel('유튜브 링크').fill('https://youtu.be/M7lc1UVf-VE');
+  await page.getByLabel('영상 제목').fill('9인제 역할 분류 검증');
+  await page.getByLabel('경기 날짜').fill('2026-10-12');
+  await page.getByRole('checkbox',{name:'수비 담당',exact:true}).check();
+  await page.getByRole('button',{name:'JSON 생성',exact:true}).click();
+  expect(JSON.parse(await page.locator('pre').innerText()).positionTags).toEqual(['defense']);
+});
+
 test('all six skill lessons show nine-player guidance and preserve reference videos', async ({ page }) => {
   const lessons = [['underhand-pass',10],['overhand-pass',10],['serve',10],['spike',10],['blocking',6],['dig',8]] as const;
   for (const width of [1440,390,360]) {

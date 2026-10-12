@@ -58,11 +58,21 @@ export type Rule = {
 };
 export const positionNames: Record<string, string> = {
   setter: "세터",
-  outside: "아웃사이드 히터",
-  opposite: "아포짓",
-  middle: "미들 블로커",
-  libero: "리베로",
+  left: "레프트",
+  right: "라이트",
+  center: "센터",
+  defense: "수비 담당",
 };
+// Preserve original video metadata; group legacy six-player tags by learning role.
+const legacyPositionAliases: Record<string, string> = {
+  outside: "left",
+  opposite: "right",
+  middle: "center",
+  libero: "defense",
+};
+export function videoPositionTags(video: Video): string[] {
+  return [...new Set(video.positionTags.map((tag) => legacyPositionAliases[tag] ?? tag))];
+}
 export const categoryNames = {
   club: "우리 동호회",
   skill: "기초 영상",
@@ -126,7 +136,7 @@ export function validateVideos(data: unknown): Video[] {
       !validDate(row.date) ||
       !Object.keys(categoryNames).includes(row.category) ||
       !Array.isArray(row.positionTags) ||
-      row.positionTags.some((t) => !Object.keys(positionNames).includes(t)) ||
+      row.positionTags.some((t) => !Object.hasOwn(positionNames, t) && !Object.hasOwn(legacyPositionAliases, t)) ||
       !Number.isInteger(row.startSeconds) ||
       row.startSeconds < 0
       || (row.uploadDate !== undefined && !validDate(row.uploadDate))
@@ -151,7 +161,7 @@ export function filterVideos(
       (v) =>
         `${v.title} ${v.channel ?? ""} ${v.summary ?? ""} ${(v.skillTags ?? []).join(" ")}`.toLowerCase().includes(search.trim().toLowerCase()) &&
         (category === "all" || v.category === category) &&
-        (position === "all" || v.positionTags.includes(position)),
+        (position === "all" || videoPositionTags(v).includes(legacyPositionAliases[position] ?? position)),
     )
     .sort((a, b) => (b.uploadDate ?? b.date).localeCompare(a.uploadDate ?? a.date) || a.id.localeCompare(b.id));
 }

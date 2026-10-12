@@ -71,6 +71,16 @@ describe("metadata validation and filtering", () => {
     expect(filterVideos([old, video], "경기", "pro", "libero")).toEqual([old]);
     expect(filterVideos([old, video], "없는 제목")).toEqual([]);
   });
+  it("filters both original and new role tags without changing metadata", () => {
+    for (const [original, current] of [['outside','left'],['opposite','right'],['middle','center'],['libero','defense']]) {
+      const legacy={...video,id:'legacy',positionTags:[original]};
+      const fresh={...video,id:'fresh',positionTags:[current]};
+      expect(validateVideos([legacy,fresh])).toEqual([legacy,fresh]);
+      expect(filterVideos([legacy,fresh],'','all',current).map(v=>v.id).sort()).toEqual(['fresh','legacy']);
+      expect(filterVideos([legacy,fresh],'','all',original)).toEqual(filterVideos([legacy,fresh],'','all',current));
+      expect(legacy.positionTags).toEqual([original]);
+    }
+  });
 });
 describe("learning data", () => {
   it("elementary sources are unique, recent, described and playable in the app", () => {
