@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-12T12:16:02.380Z",
+  "environment": "Windows Playwright Chromium 156.0.8078.4",
+  "url": "https://gmlduqzhd123-lab.github.io/Volleyball/",
+  "checks": {
+    "qr": {
+      "decoded": "https://gmlduqzhd123-lab.github.io/Volleyball/",
+      "downloaded": "volleyball-king-qr.png",
+      "width": 360
+    },
+    "clipboard": "actual write/read match",
+    "qrDestination": "https://gmlduqzhd123-lab.github.io/Volleyball/",
+    "manifest": {
+      "name": "우리 모두 배구왕",
+      "start": "https://gmlduqzhd123-lab.github.io/Volleyball/#/home",
+      "icons": [
+        "192x192",
+        "512x512"
+      ]
+    },
+    "serviceWorker": {
+      "scope": "https://gmlduqzhd123-lab.github.io/Volleyball/",
+      "script": "https://gmlduqzhd123-lab.github.io/Volleyball/sw.js"
+    },
+    "deployedBytes": {
+      "matchesLocal": [
+        "index.html",
+        "manifest.webmanifest",
+        "sw.js",
+        "icons/ball-180.png",
+        "icons/ball-192.png",
+        "icons/ball-512.png",
+        "assets/index-DNETLNfx.js",
+        "assets/index-DtY-Nvll.css"
+      ]
+    },
+    "offline": "public origin reload + 6 skill cards",
+    "mobile": "390px, no horizontal overflow"
+  }
+}
