@@ -1,0 +1,52 @@
+import { test, expect } from '@playwright/test';
+
+test('nine-player beginner rules and terms on desktop and mobile', async ({ page }) => {
+  for (const width of [1440, 390, 360]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/#/beginner');
+    await page.reload();
+    await expect(page.locator('.page-title')).toContainText('9인제 기준');
+    await page.getByRole('textbox', { name: '용어 검색' }).fill('서브 타순');
+    await expect(page.locator('.term-card')).toHaveCount(1);
+    await expect(page.locator('.term-card')).toContainText('자리 로테이션을 하지 않아요');
+    await page.getByRole('textbox', { name: '용어 검색' }).fill('수비 담당');
+    await expect(page.locator('.term-card')).toContainText('리베로 제도가 없어요');
+    await page.getByRole('button', { name: '규칙 배우기', exact: true }).click();
+    await expect(page.getByText('대한배구협회 9인제 기본 규칙', { exact: true })).toBeVisible();
+    await expect(page.locator('.rule-card')).toHaveCount(8);
+    await expect(page.locator('.rules-grid')).toContainText('21점제');
+    await expect(page.locator('.rules-grid')).toContainText('남자 21m × 10.5m');
+    await expect(page.locator('.rules-grid')).toContainText('초등부는 남녀 모두 16m × 8m');
+    await expect(page.locator('.rules-grid')).toContainText('4번째 접촉');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: `research/nine-player/beginner-${width}.png`, fullPage: true });
+  }
+});
+
+test('nine-player ten correct answers, explanations, result and reload', async ({ page }) => {
+  await page.goto('/#/quiz');
+  await expect(page.locator('.page-title')).toContainText('9인제 배구 퀴즈');
+  const answers = ['리시브', '9명', '3번', '다음 타순 선수가 서브해요', '세터',
+    '일반 선수로 서브와 공격에도 참여해요', '아래팔의 평평한 면', '2점 차가 날 때까지 계속',
+    '엔드라인 뒤의 서비스 지역', '한 번에 한해 어떤 선수든 다시 플레이할 수 있어요'];
+  for (let i = 0; i < answers.length; i++) {
+    await page.locator('.quiz-choices button').filter({ hasText: answers[i] }).click();
+    await page.getByRole('button', { name: '정답 확인', exact: true }).click();
+    await expect(page.locator('.answer-explanation')).toContainText('정답');
+    await page.getByRole('button', { name: i === 9 ? '결과 보기' : '다음 문제', exact: true }).click();
+  }
+  await expect(page.locator('.score')).toContainText('10');
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('volleyball-quiz-result')!)))
+    .toMatchObject({ ruleSet: 'nine-player-v1', score: 10, total: 10 });
+  await page.reload();
+  await expect(page.getByText('지난 기록 10 / 10점')).toBeVisible();
+});
+
+test('six-player legacy result is retained but not shown as a nine-player result', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(() => localStorage.setItem('volleyball-quiz-result', JSON.stringify({score:6,total:10})));
+  await page.goto('/#/quiz');
+  await expect(page.locator('.page-title')).toContainText('9인제 배구 퀴즈');
+  await expect(page.getByText('지난 기록 6 / 10점')).toHaveCount(0);
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('volleyball-quiz-result')!).score)).toBe(6);
+});

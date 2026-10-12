@@ -35,7 +35,7 @@ import {
 } from "./lib";
 import type { Position, Quiz, Rule, Skill, Term, Video } from "./lib";
 const officialRules =
-  "https://www.fivb.com/wp-content/uploads/2025/01/FIVB-Volleyball_Rules2025_2028-EN-v05.pdf";
+  "https://www.kva.or.kr/user/template.do?fileNm=vlb2_1";
 const nav = [
   ["home", "홈"],
   ["videos", "배구 영상"],
@@ -666,7 +666,7 @@ function Beginner({
       <PageTitle
         eyebrow="VOLLEYBALL, MADE SIMPLE"
         title="왕초보 배구 교실"
-        description="처음 듣는 말도, 헷갈리는 규칙도. 하나씩 알아가면 배구가 더 재미있어져요."
+        description="9인제 기준으로 용어와 기본 규칙을 배워요. 하나씩 알아가면 배구가 더 재미있어져요."
       />
       <div className="learning-path">
         <span>
@@ -772,13 +772,13 @@ function Beginner({
           <div className="notice">
             <ShieldCheck size={20} />
             <div>
-              <b>FIVB 실내 6인제 기본 규칙</b>
+              <b>대한배구협회 9인제 기본 규칙</b>
               <p>
-                동호회·학교·대회 규칙은 다를 수 있어요. 실제 경기에서는 해당
+                아래는 협회 9인제 규정의 기본 안내예요. 점수·세트·코트 규격 등은 대회별로 다를 수 있어요. 실제 경기에서는 해당
                 대회 규정을 확인하세요.
               </p>
               <a href={officialRules} target="_blank" rel="noreferrer">
-                FIVB 2025–2028 공식 규정 확인
+                대한배구협회 9인제 경기규칙 확인
                 <ExternalLink size={14} />
               </a>
             </div>
@@ -1082,7 +1082,7 @@ function QuizPage({ resource }: { resource: Resource<Quiz> }) {
       const value = localStorage.getItem("volleyball-quiz-result");
       if (value) {
         const r = JSON.parse(value);
-        if (typeof r.score === "number" && typeof r.total === "number")
+        if (r.ruleSet === "nine-player-v1" && typeof r.score === "number" && typeof r.total === "number")
           setPrevious(`지난 기록 ${r.score} / ${r.total}점`);
       }
     } catch {
@@ -1104,6 +1104,7 @@ function QuizPage({ resource }: { resource: Resource<Quiz> }) {
         localStorage.setItem(
           "volleyball-quiz-result",
           JSON.stringify({
+            ruleSet: "nine-player-v1",
             score: quizScore(questions, updated),
             total: questions.length,
             completedAt: new Date().toISOString(),
@@ -1121,7 +1122,7 @@ function QuizPage({ resource }: { resource: Resource<Quiz> }) {
       <PageTitle
         eyebrow="CHALLENGE YOURSELF"
         title="배구왕까지, 열 문제!"
-        description="틀려도 괜찮아요. 정답의 이유를 알아 가는 게 오늘의 목표니까요."
+        description="9인제 배구 퀴즈예요. 틀려도 괜찮아요. 정답과 해설로 규칙을 익혀 보세요."
       />
       <DataState resource={resource} label="퀴즈 자료" />
       {storage && (

@@ -72,7 +72,8 @@ test("terms, rules, lesson detail and keyboard nine-player court and service ord
 }) => {
   await page.goto("/#/beginner");
   await page.getByRole("textbox", { name: "용어 검색" }).fill("디그");
-  await expect(page.locator(".term-card")).toHaveCount(1);
+  await expect(page.locator(".term-card")).toHaveCount(2);
+  await expect(page.locator(".term-card h3")).toContainText(["디그", "수비 담당"]);
   await page.getByRole("button", { name: "규칙 배우기" }).click();
   await expect(
     page.getByRole("heading", { name: "점수와 세트" }),
