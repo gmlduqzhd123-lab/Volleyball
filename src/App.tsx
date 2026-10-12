@@ -810,9 +810,16 @@ function Skills({ resource }: { resource: Resource<Skill> }) {
       <PageTitle
         eyebrow="BUILD YOUR SKILLS"
         title="배구 기술 교실"
-        description="좋은 플레이의 시작은 기본기. 한 동작씩, 내 속도로 배워 보세요."
+        description="9인제 배구에 필요한 여섯 가지 기본기. 한 동작씩, 내 속도로 배워 보세요."
       />
       <DataState resource={resource} label="기술 자료" />
+      <div className="notice">
+        <Flag size={20} />
+        <div>
+          <b>기본 동작부터 9인제 경기까지</b>
+          <p>패스·서브·스파이크·블로킹·디그의 기본 동작을 배우고, 각 기술 페이지에서 9인제 경기에서의 활용과 규칙을 확인해요. 실제 경기는 참가 대회의 경기요강을 따라요.</p>
+        </div>
+      </div>
       <div className="skills-grid">
         {resource.data.map((s, i) => (
           <a className="skill-card" href={`#/skill/${s.id}`} key={s.id}>
@@ -919,6 +926,17 @@ function SkillDetail({
         title={s.name}
         description={s.purpose}
       />
+      {s.ninePlayerNotes && (
+        <section className="notice nine-player-skill-notes" aria-label="9인제 기술 안내">
+          <Flag size={20} />
+          <div>
+            <h2>9인제에서 기억해요</h2>
+            {s.ninePlayerNotes.map((note) => <p key={note}>{note}</p>)}
+            <a href={officialRules} target="_blank" rel="noreferrer">대한배구협회 9인제 경기규칙 확인</a>
+            <p className="muted">팀의 배치·역할 분담은 전술에 따라 달라져요. 실제 경기에서는 해당 대회의 경기요강을 먼저 확인하세요.</p>
+          </div>
+        </section>
+      )}
       <div className="lesson-layout">
         <div>
           <div className="notice">
@@ -952,6 +970,7 @@ function SkillDetail({
       </div>
       <section className="section">
         <h2>함께 볼 기술 영상</h2>
+        <p className="muted">아래 영상은 기본 동작을 참고하는 자료예요. 6인제 경기나 훈련 영상도 포함될 수 있어요. 자리 로테이션·리베로·공격선 등 경기 규칙은 위의 9인제 안내와 왕초보 배구 교실을 참고하세요.</p>
         <DataState resource={videos} label="참고 영상" />
         {videos.status === "ready" &&
           (videos.data.some((v) => s.videoIds.includes(v.id)) ? (

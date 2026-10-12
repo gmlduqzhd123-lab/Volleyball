@@ -1,5 +1,29 @@
 import { test, expect } from '@playwright/test';
 
+test('all six skill lessons show nine-player guidance and preserve reference videos', async ({ page }) => {
+  const lessons = [['underhand-pass',10],['overhand-pass',10],['serve',10],['spike',10],['blocking',6],['dig',8]] as const;
+  for (const width of [1440,390,360]) {
+    await page.setViewportSize({width,height:900});
+    await page.goto('/#/skills');
+    await expect(page.locator('.page-title')).toContainText('9인제 배구');
+    await expect(page.locator('.skill-card')).toHaveCount(6);
+    for (const [id, count] of lessons) {
+      await page.goto(`/#/skill/${id}`);
+      const notes=page.locator('.nine-player-skill-notes');
+      await expect(notes.getByRole('heading',{name:'9인제에서 기억해요',exact:true})).toBeVisible();
+      await expect(notes.getByRole('link')).toHaveAttribute('href','https://www.kva.or.kr/user/template.do?fileNm=vlb2_1');
+      await expect(page.locator('.video-card')).toHaveCount(count);
+      await expect(page.locator('iframe')).toHaveCount(0);
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      if(id==='serve') await expect(page.locator('.steps')).toContainText('손에서 떨어뜨려요');
+      if(id==='spike') await expect(notes).toContainText('전위·후위 공격 제한을 적용하지 않아요');
+      if(id==='blocking') await expect(notes).toContainText('상대 서브를 블로킹하는 것은 금지');
+      if(id==='dig') await expect(notes).toContainText('리베로 제도를 적용하지 않아요');
+    }
+    await page.screenshot({path:`research/nine-player/skill-dig-${width}.png`,fullPage:true});
+  }
+});
+
 test('nine-player beginner rules and terms on desktop and mobile', async ({ page }) => {
   for (const width of [1440, 390, 360]) {
     await page.setViewportSize({ width, height: 900 });

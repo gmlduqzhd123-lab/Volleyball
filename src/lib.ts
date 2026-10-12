@@ -32,6 +32,7 @@ export type Skill = {
   mistakes: string[];
   drills: string[];
   videoIds: string[];
+  ninePlayerNotes?: string[];
 };
 export type Position = {
   id: string;
@@ -173,6 +174,8 @@ export function validateLearning(name: string, input: unknown): unknown[] {
     if (!row || typeof row.id !== "string" || !row.id || ids.has(row.id))
       throw Error("학습 항목 오류");
     ids.add(row.id);
+    if (name === "skills" && row.ninePlayerNotes !== undefined && !strings(row.ninePlayerNotes))
+      throw Error("9인제 기술 안내 오류");
     if (name === "quizzes") {
       if (
         typeof row.question !== "string" ||
