@@ -1,5 +1,58 @@
 import { test, expect } from '@playwright/test';
 
+test('court numbers explain all nine locations on desktop and touch screens', async ({ browser }) => {
+  const names = ['전위 왼쪽', '전위 중앙', '전위 오른쪽', '중위 왼쪽', '중위 중앙', '중위 오른쪽', '후위 왼쪽', '후위 중앙', '후위 오른쪽'];
+  const roleNames = ['레프트','센터','라이트','수비 담당','세터','수비 담당','수비 담당','수비 담당','수비 담당'];
+  for (const width of [1440, 390, 320]) {
+    const context = await browser.newContext({ viewport: { width, height: 900 }, hasTouch: width < 600 });
+    const page = await context.newPage();
+    await page.goto('http://127.0.0.1:5173/#/positions');
+    const spots = page.locator('.court-spot');
+    const detail = page.locator('#court-position-detail');
+    await expect(spots).toHaveCount(9);
+    const roles = new Set<string>();
+    for (let i = 0; i < 9; i++) {
+      if (width < 600) await spots.nth(i).tap();
+      else await spots.nth(i).click();
+      await expect(detail.getByRole('heading')).toContainText(names[i]);
+      await expect(detail).toContainText(`선수 ${i + 1}`);
+      await expect(detail.locator('dd').first()).toContainText('네트를 바라볼 때');
+      roles.add(await detail.locator('dd').nth(1).innerText());
+      await expect(page.locator('.role-description h2')).toHaveText(roleNames[i]);
+      await expect(page.locator('.role-description')).toContainText(`선수 ${i + 1}`);
+      await expect(page.locator('.role-buttons button[aria-pressed="true"]')).toContainText(roleNames[i]);
+      await expect(detail).toContainText('초보자 팁');
+      await expect(spots.nth(i)).toHaveAttribute('aria-pressed', 'true');
+      await expect(page.locator('.court-spot[aria-pressed="true"]')).toHaveCount(1);
+      await expect(spots.nth(i).locator('circle')).toHaveAttribute('fill', '#194a3a');
+      const box = await spots.nth(i).boundingBox();
+      expect(box!.width).toBeGreaterThanOrEqual(44);
+      expect(box!.height).toBeGreaterThanOrEqual(44);
+    }
+    expect(roles.size).toBe(9);
+    for (const [name, index] of [['세터',4],['레프트',0],['라이트',2],['센터',1],['수비 담당',3]] as const) {
+      await page.locator('.role-buttons button').filter({hasText:name}).click();
+      await expect(spots.nth(index)).toHaveAttribute('aria-pressed','true');
+      await expect(page.locator('.role-description h2')).toHaveText(name);
+      await expect(detail).toContainText(`선수 ${index + 1}`);
+    }
+    await spots.nth(0).focus();
+    await page.keyboard.press('Enter');
+    await expect(detail.getByRole('heading')).toContainText(names[0]);
+    await spots.nth(4).focus();
+    await page.keyboard.press('Space');
+    await expect(detail.getByRole('heading')).toContainText(names[4]);
+    await expect(page.locator('.court-caption')).toContainText('공식 포지션 번호나 서브 타순이 아니에요');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.getByRole('button', {name: '다음 서버', exact: true}).click();
+    await expect(page.locator('.rotation-controls')).toContainText('선수 2');
+    await expect(detail.getByRole('heading')).toContainText(names[4]);
+    await page.locator('.court-panel h2').click();
+    await page.locator('.court-panel').screenshot({path: `artifacts/court-positions-${width}.png`});
+    await context.close();
+  }
+});
+
 test('nine-player video position filters combine categories and search without losing videos', async ({ page }) => {
   const mapping: Record<string,string> = {setter:'setter',outside:'left',opposite:'right',middle:'center',libero:'defense',left:'left',right:'right',center:'center',defense:'defense'};
   for (const width of [1440,390,360]) {

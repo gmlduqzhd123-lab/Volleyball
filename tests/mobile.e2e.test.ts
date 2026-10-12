@@ -1,6 +1,59 @@
 import { test, expect, chromium, webkit, devices } from '@playwright/test';
 const mobileBase = process.env.MOBILE_BASE_URL ?? 'http://127.0.0.1:5173/';
 
+test('court touch selection survives mobile orientation changes in Chromium and WebKit', async () => {
+  test.setTimeout(120000);
+  const names = ['전위 왼쪽', '전위 중앙', '전위 오른쪽', '중위 왼쪽', '중위 중앙', '중위 오른쪽', '후위 왼쪽', '후위 중앙', '후위 오른쪽'];
+  const roleNames = ['레프트','센터','라이트','수비 담당','세터','수비 담당','수비 담당','수비 담당','수비 담당'];
+  for (const engine of [chromium, webkit]) {
+    const browser = await engine.launch();
+    try {
+      for (const [width, height] of [[320, 568], [360, 800], [390, 844], [430, 932]]) {
+        const context = await browser.newContext({ viewport: {width, height}, isMobile: true, hasTouch: true,
+          userAgent: devices[engine === webkit ? 'iPhone 13' : 'Pixel 7'].userAgent });
+        try {
+          const page = await context.newPage();
+          const errors: string[] = [];
+          page.on('pageerror', error => errors.push(error.message));
+          await page.goto(`${mobileBase}#/positions`);
+          const spots = page.locator('.court-spot');
+          const detail = page.locator('#court-position-detail');
+          for (const viewport of [{width, height}, {width: height, height: width}]) {
+            await page.setViewportSize(viewport);
+            for (let i = 0; i < names.length; i++) {
+              await spots.nth(i).tap();
+              await expect(detail.getByRole('heading')).toContainText(names[i]);
+              await expect(page.locator('.role-description h2')).toHaveText(roleNames[i]);
+              await expect(page.locator('.role-buttons button[aria-pressed="true"]')).toContainText(roleNames[i]);
+              await expect(spots.nth(i)).toHaveAttribute('aria-pressed', 'true');
+              await expect(page.locator('.court-spot[aria-pressed="true"]')).toHaveCount(1);
+              const box = await spots.nth(i).boundingBox();
+              expect(box!.width).toBeGreaterThanOrEqual(44);
+              expect(box!.height).toBeGreaterThanOrEqual(44);
+            }
+            expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+          }
+          await page.setViewportSize({width, height});
+          await expect(detail.getByRole('heading')).toContainText('후위 오른쪽');
+          await spots.nth(0).tap();
+          await expect(detail.getByRole('heading')).toContainText('전위 왼쪽');
+          for (const [name, index] of [['세터',4],['센터',1],['라이트',2],['수비 담당',3],['레프트',0]] as const) {
+            await page.locator('.role-buttons button').filter({hasText:name}).tap();
+            await expect(spots.nth(index)).toHaveAttribute('aria-pressed','true');
+            await expect(page.locator('.role-description h2')).toHaveText(name);
+          }
+          await page.locator('.court-role-jump').tap();
+          await expect(page.locator('#role-detail')).toBeFocused();
+          await expect(page.locator('#role-detail h2')).toHaveText('레프트');
+          await detail.scrollIntoViewIfNeeded();
+          await page.screenshot({path: `research/mobile/${process.env.MOBILE_BASE_URL ? 'live-' : ''}court-mobile-${engine.name()}-${width}.png`});
+          expect(errors).toEqual([]);
+        } finally { await context.close(); }
+      }
+    } finally { await browser.close(); }
+  }
+});
+
 test('touch navigation, categories, search and player on portrait and landscape in Chromium and WebKit', async () => {
   test.setTimeout(180000);
   for (const engine of [chromium, webkit]) {

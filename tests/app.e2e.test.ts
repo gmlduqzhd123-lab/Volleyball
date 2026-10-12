@@ -90,7 +90,7 @@ test("terms, rules, lesson detail and keyboard nine-player court and service ord
   await expect(page.locator('.rotation-controls')).toContainText('선수 1');
   await page.getByRole('button', { name: '선수 9, 뒤쪽 배치 예시' }).focus();
   await page.keyboard.press('Enter');
-  await expect(page.locator('.court-caption')).toContainText('선수 9');
+  await expect(page.locator('.court-position-detail')).toContainText('선수 9');
   await page.getByRole('button', { name: '수 수비 담당', exact: true }).click();
   await expect(page.locator('.role-description h2')).toHaveText('수비 담당');
   await expect(page.locator('.role-description')).toContainText('리베로가 아니에요');

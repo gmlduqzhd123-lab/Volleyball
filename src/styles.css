@@ -1179,6 +1179,30 @@ select {
 .court-caption {
   margin: 20px 0 0;
 }
+.court-position-detail {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #d4dec9;
+  border-left: 4px solid #194a3a;
+  border-radius: 10px;
+  background: #fffef3;
+}
+.court-panel .section-heading .tag { white-space: nowrap; flex-shrink: 0; }
+.court-position-detail h3 {
+  margin: 12px 0 16px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.court-position-detail dl { margin: 0; }
+.court-position-detail dl > div + div { margin-top: 14px; }
+.court-position-detail dt { font-size: 12px; font-weight: 700; color: #456448; }
+.court-position-detail dd { margin: 4px 0 0; font-size: 14px; line-height: 1.7; }
+.court-spot { touch-action: manipulation; }
+.court-role-jump { display: none; margin-top: 16px; }
+.role-description { scroll-margin-top: 20px; }
+@media (max-width: 850px) {
+  .court-role-jump { display: inline-flex; }
+}
 .nine-court {
   max-height: 440px;
 }

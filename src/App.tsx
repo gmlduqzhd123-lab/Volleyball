@@ -997,15 +997,35 @@ function SkillDetail({
     </>
   );
 }
+const courtPositions = [
+  { name: "전위 왼쪽 · 레프트 포워드", location: "네트를 바라볼 때, 네트 가까운 왼쪽이에요.", role: "왼쪽에서 공격하고 상대 공격을 블로킹해요. 가까이 떨어지는 공도 함께 받아요." },
+  { name: "전위 중앙 · 센터 포워드", location: "네트를 바라볼 때, 네트 가까운 가운데예요.", role: "가운데에서 공격과 블로킹을 돕고, 네트 앞의 짧은 공에 대비해요." },
+  { name: "전위 오른쪽 · 라이트 포워드", location: "네트를 바라볼 때, 네트 가까운 오른쪽이에요.", role: "오른쪽에서 공격하고 상대 공격을 블로킹해요. 가까이 떨어지는 공도 함께 받아요." },
+  { name: "중위 왼쪽 · 레프트 하프", location: "네트를 바라볼 때, 코트 중간의 왼쪽이에요.", role: "왼쪽으로 오는 공을 받아 연결해요. 앞쪽 선수 뒤로 떨어지는 공을 도와 받아요." },
+  { name: "중위 중앙 · 센터 하프", location: "네트를 바라볼 때, 코트 중간의 가운데예요.", role: "가운데로 오는 공을 받아 공격으로 연결해요. 주변 선수와 공을 받을 범위를 함께 정해요." },
+  { name: "중위 오른쪽 · 라이트 하프", location: "네트를 바라볼 때, 코트 중간의 오른쪽이에요.", role: "오른쪽으로 오는 공을 받아 연결해요. 앞쪽 선수 뒤로 떨어지는 공을 도와 받아요." },
+  { name: "후위 왼쪽 · 레프트 백", location: "네트를 바라볼 때, 엔드라인 쪽 뒤편의 왼쪽이에요.", role: "왼쪽 깊숙이 오는 서브와 공격을 받아요. 받은 공을 동료가 이어갈 수 있게 보내요." },
+  { name: "후위 중앙 · 센터 백", location: "네트를 바라볼 때, 엔드라인 쪽 뒤편의 가운데예요.", role: "가운데 깊숙이 오는 공을 받아요. 동료와 소리로 알려 주며 뒤쪽 빈 공간을 함께 지켜요." },
+  { name: "후위 오른쪽 · 라이트 백", location: "네트를 바라볼 때, 엔드라인 쪽 뒤편의 오른쪽이에요.", role: "오른쪽 깊숙이 오는 서브와 공격을 받아요. 받은 공을 동료가 이어갈 수 있게 보내요." },
+];
 function Positions({ resource }: { resource: Resource<Position> }) {
-  const [selected, setSelected] = useState("setter"),
-    [server, setServer] = useState(1),
+  const [server, setServer] = useState(1),
     [spot, setSpot] = useState(1);
+  // Learning example, not a required lineup or an official numbering system.
+  const roleBySpot = ["left", "center", "right", "defense", "setter", "defense", "defense", "defense", "defense"];
+  const selected = roleBySpot[spot - 1];
   const p = resource.data.find((p) => p.id === selected);
+  function selectRole(id: string) {
+    if (selected !== id) {
+      const index = roleBySpot.indexOf(id);
+      if (index >= 0) setSpot(index + 1);
+    }
+  }
   const coords = [[110, 112], [220, 112], [330, 112],
     [110, 208], [220, 208], [330, 208],
     [110, 304], [220, 304], [330, 304]];
   const areas = ["앞쪽", "가운데", "뒤쪽"];
+  const activePosition = courtPositions[spot - 1];
   return (
     <>
       <PageTitle eyebrow="FIND YOUR PLACE" title="코트 위, 나의 역할"
@@ -1017,6 +1037,7 @@ function Positions({ resource }: { resource: Resource<Position> }) {
             <h2>아홉 명의 배치를 익혀요</h2><span className="tag">9인제</span>
           </div>
           <p>자리 로테이션은 없어요. 팀의 작전에 맞춰 공격과 수비 위치를 정해요.</p>
+          <p className="court-instruction">번호를 누르면 위치와 역할을 볼 수 있어요. 왼쪽·오른쪽은 네트를 바라보는 기준이에요.</p>
           <svg className="court nine-court" viewBox="0 0 440 410" role="group"
             aria-label="9인제 배구 코트 배치 예시, 아홉 명의 선수를 선택해 보세요">
             <rect x="50" y="65" width="340" height="305" rx="3" fill="#e5ead7" stroke="#5b8168" strokeWidth="3" />
@@ -1026,7 +1047,7 @@ function Positions({ resource }: { resource: Resource<Position> }) {
               className="court-label" transform={`rotate(-90 23 ${112 + i * 96})`}>{area}</text>)}
             {coords.map(([x, y], i) => (
               <g key={i} role="button" tabIndex={0} aria-label={`선수 ${i + 1}, ${areas[Math.floor(i / 3)]} 배치 예시`}
-                aria-pressed={spot === i + 1} onClick={() => setSpot(i + 1)}
+                aria-pressed={spot === i + 1} aria-controls="court-position-detail" onClick={() => setSpot(i + 1)}
                 onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSpot(i + 1); } }}
                 className="court-spot">
                 <rect x={x - 44} y={y - 43} width="88" height="86" fill="transparent" />
@@ -1038,9 +1059,24 @@ function Positions({ resource }: { resource: Resource<Position> }) {
             ))}
             <text x="220" y="398" textAnchor="middle" className="court-label">우리 코트 · 엔드라인</text>
           </svg>
-          <p className="court-caption" aria-live="polite">
-            <b>선수 {spot}</b>는 {areas[Math.floor((spot - 1) / 3)]}에 배치한 예시예요. 숫자는 설명용이며 공식 위치 번호가 아니에요.
-          </p>
+          <div id="court-position-detail" className="court-position-detail" aria-live="polite" aria-atomic="true">
+            <span className="tag">선수 {spot} · 선택한 위치</span>
+            <h3>{activePosition.name}</h3>
+            <dl>
+              <div><dt>코트에서의 위치</dt><dd>{activePosition.location}</dd></div>
+              <div><dt>주요 역할 예시</dt><dd>{activePosition.role}</dd></div>
+              {p && <>
+                <div><dt>연결된 학습용 역할</dt><dd>{p.name} · 팀 전술에 따라 달라질 수 있어요.</dd></div>
+                <div><dt>초보자 팁</dt><dd>{p.tips[0]}</dd></div>
+              </>}
+            </dl>
+            <button type="button" className="button small secondary court-role-jump" onClick={() => {
+              const detail = document.getElementById("role-detail");
+              detail?.focus({ preventScroll: true });
+              detail?.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+            }}>선수 {spot} 역할 설명 보기</button>
+          </div>
+          <p className="court-caption">숫자 1~9는 그림의 설명용 번호이며 공식 포지션 번호나 서브 타순이 아니에요. 위치 명칭은 코트 안의 위치를 나타내며, 실제 배치와 역할은 팀 작전에 따라 달라져요.</p>
           <div className="serve-lesson">
             <h3>자리는 그대로, 서브는 타순대로</h3>
             <p>우리 팀이 서브 중 득점하면 같은 선수가 계속 서브해요. 상대 서브 중 득점해 서브권을 얻으면 다음 타순 선수가 서브해요.</p>
@@ -1060,7 +1096,8 @@ function Positions({ resource }: { resource: Resource<Position> }) {
                 key={p.id}
                 aria-pressed={selected === p.id}
                 className={selected === p.id ? "active" : ""}
-                onClick={() => setSelected(p.id)}
+                aria-controls="role-detail"
+                onClick={() => selectRole(p.id)}
               >
                 {p.abbreviation}
                 <span>{p.name}</span>
@@ -1068,7 +1105,9 @@ function Positions({ resource }: { resource: Resource<Position> }) {
             ))}
           </div>
           {p && (
-            <div className="role-description">
+            <div id="role-detail" className="role-description" tabIndex={-1} aria-live="polite" aria-atomic="true">
+              <p className="selected-role-location">선수 {spot} · {activePosition.name} · 학습용 역할 예시</p>
+              <p>{activePosition.location}</p>
               <span className="eyebrow">{p.subtitle}</span>
               <h2>{p.name}</h2>
               <h3>이런 일을 해요</h3>
@@ -1094,6 +1133,8 @@ function Positions({ resource }: { resource: Resource<Position> }) {
           <p>3×3 그림은 아홉 명을 쉽게 이해하기 위한 예시이며 의무 배치가 아니에요. 9인제에는 6인제의 시계 방향 자리 로테이션, 3m 공격선, 리베로 제도를 적용하지 않아요. 수비 담당도 일반 선수로 서브와 공격에 참여할 수 있어요.</p>
           <p>아래 역할은 입문용 분류예요. 세터의 수와 공격·수비 분담은 팀의 전술에 따라 달라질 수 있어요. 실제 경기는 참가 대회의 경기요강을 먼저 확인하세요.</p>
           <a href="https://www.kva.or.kr/user/template.do?fileNm=vlb2_1" target="_blank" rel="noopener noreferrer">대한배구협회 경기규칙 · 9인제 배구 확인하기</a>
+          <p><a href="https://k9vf.or.kr/pages/volleyball/rules.html" target="_blank" rel="noopener noreferrer">한국9인제배구연맹 · 9인제 규칙과 배치 설명 참고</a></p>
+          <p>참고 자료의 적용 범위를 구분해요. 연맹 페이지의 전위·중위·후위 설명을 학습에 참고했으며, 가운데의 세터 배치나 오른쪽 후위의 서브를 모든 팀의 의무로 해석하지 않아요. 연맹 페이지는 25점제, 협회가 제공하는 9인제 규칙은 21점제로 안내해요. 이 앱의 기본 규칙은 협회 자료를 기준으로 유지하며 실제 대회의 경기요강을 먼저 확인하세요.</p>
         </div>
       </div>
     </>
