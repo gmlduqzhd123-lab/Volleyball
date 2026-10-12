@@ -1,0 +1,192 @@
+[
+  {
+    "id": "entertainment-01",
+    "youtubeId": "O0olAriGuHE",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-01",
+    "checkedAt": "2026-10-12T12:51:16.852Z",
+    "before": {
+      "adShowing": false,
+      "duration": 549.941,
+      "paused": false,
+      "time": 11.743092
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 549.941,
+      "paused": false,
+      "time": 33.544653
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-02",
+    "youtubeId": "EL_dJjWAXBA",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-02",
+    "checkedAt": "2026-10-12T12:51:16.922Z",
+    "before": {
+      "adShowing": false,
+      "duration": 373.801,
+      "paused": false,
+      "time": 7.160286
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 373.801,
+      "paused": false,
+      "time": 29.112847
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-03",
+    "youtubeId": "9m7sKqbugkI",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-03",
+    "checkedAt": "2026-10-12T12:51:16.966Z",
+    "before": {
+      "adShowing": false,
+      "duration": 444.821,
+      "paused": false,
+      "time": 6.089504
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 444.821,
+      "paused": false,
+      "time": 28.218126
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-04",
+    "youtubeId": "UG6G3yJIW3M",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-04",
+    "checkedAt": "2026-10-12T12:52:31.694Z",
+    "before": {
+      "adShowing": false,
+      "duration": 1694.021,
+      "paused": false,
+      "time": 9.192885
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 1694.021,
+      "paused": false,
+      "time": 33.331902
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-05",
+    "youtubeId": "RSj126jnWl0",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-05",
+    "checkedAt": "2026-10-12T12:52:31.769Z",
+    "before": {
+      "adShowing": false,
+      "duration": 686.241,
+      "paused": false,
+      "time": 8.136637
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 686.241,
+      "paused": false,
+      "time": 32.457337
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-06",
+    "youtubeId": "A3Gyhmu0Oqs",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-06",
+    "checkedAt": "2026-10-12T12:52:31.811Z",
+    "before": {
+      "adShowing": false,
+      "duration": 835.501,
+      "paused": false,
+      "time": 7.12064
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 835.501,
+      "paused": false,
+      "time": 31.590471
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-07",
+    "youtubeId": "Ga9s3rPARrg",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-07",
+    "checkedAt": "2026-10-12T12:53:55.758Z",
+    "before": {
+      "adShowing": false,
+      "duration": 900.981,
+      "paused": false,
+      "time": 7.131303
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 900.981,
+      "paused": false,
+      "time": 39.657082
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-08",
+    "youtubeId": "h12U7Qfr5ZA",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-08",
+    "checkedAt": "2026-10-12T12:53:55.830Z",
+    "before": {
+      "adShowing": false,
+      "duration": 895.161,
+      "paused": false,
+      "time": 6.040954
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 895.161,
+      "paused": false,
+      "time": 38.707771
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-09",
+    "youtubeId": "HvgPx4_M67w",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-09",
+    "checkedAt": "2026-10-12T12:53:55.882Z",
+    "before": {
+      "adShowing": false,
+      "duration": 697.961,
+      "paused": false,
+      "time": 37.095499
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 697.961,
+      "paused": false,
+      "time": 69.895641
+    },
+    "passed": true
+  },
+  {
+    "id": "entertainment-10",
+    "youtubeId": "hJEgaKubS0E",
+    "url": "https://gmlduqzhd123-lab.github.io/Volleyball/#/video/entertainment-10",
+    "checkedAt": "2026-10-12T12:55:37.782Z",
+    "before": {
+      "adShowing": false,
+      "duration": 895.161,
+      "paused": false,
+      "time": 6.378031
+    },
+    "after": {
+      "adShowing": false,
+      "duration": 895.161,
+      "paused": false,
+      "time": 15.172282
+    },
+    "passed": true
+  }
+]
