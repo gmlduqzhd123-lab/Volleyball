@@ -10,7 +10,7 @@
         '.yq-card{box-sizing:border-box;background:#fff;color:#0f172a;border-radius:20px;padding:22px 20px 16px;width:min(100%,520px);max-height:100%;overflow:auto;text-align:center;font-family:inherit;line-height:1.5;box-shadow:0 20px 60px rgba(0,0,0,.35)}' +
         '.yq-card .yq-title{margin:0;font-size:22px;font-weight:800;color:#0f172a}' +
         '.yq-card .yq-name{margin:2px 0 0;color:#475569;font-size:15px;font-weight:600}' +
-        '.yq-card .yq-qr{display:block;width:min(100%,62vh,420px);height:auto;margin:12px auto;image-rendering:pixelated}' +
+        '.yq-card .yq-qr{display:block;width:min(100%,62vh,calc(100vh - 132px),420px);height:auto;margin:12px auto;image-rendering:pixelated}' +
         '.yq-card .yq-url{margin:0 0 4px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:16px;word-break:break-all;color:#0f172a}' +
         '.yq-card .yq-hint{margin:0 0 14px;color:#64748b;font-size:14px}' +
         '.yq-card .yq-close{font:inherit;font-weight:700;width:100%;padding:12px;border:0;border-radius:12px;background:#0f172a;color:#fff;cursor:pointer}';
@@ -32,17 +32,17 @@
     }
 
     var closeActive = null;
-    function open() {
+    function open(trigger) {
         if (closeActive) closeActive();
         injectCss();
-        var last = document.activeElement;
+        var last = trigger || document.activeElement;
         var previousOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
         var url = appUrl();
         var back = document.createElement('div');
         back.className = 'yq-back';
         back.style.setProperty('display', 'flex', 'important'); // 앱 CSS가 다른 창을 숨겨도 QR 창은 보이게
-        back.innerHTML = '<div class="yq-card" role="dialog" aria-modal="true" aria-labelledby="yq-title">' +
+        back.innerHTML = '<div class="yq-card" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="yq-title">' +
             '<p class="yq-title" id="yq-title">📱 카메라로 찍어서 들어와요</p><p class="yq-name"></p>' +
             '<img class="yq-qr" alt="" width="420" height="420">' +
             '<p class="yq-url"></p><p class="yq-hint">휴대폰·태블릿 카메라를 QR 코드에 비추면 바로 열려요.</p>' +
@@ -57,7 +57,7 @@
             back.remove();
             document.body.style.overflow = previousOverflow;
             closeActive = null;
-            if (last && last.focus) last.focus();
+            if (last && last.focus && document.contains(last)) last.focus({ preventScroll: true });
         }
         function onKey(e) {
             if (e.key === 'Escape') close();
@@ -67,14 +67,16 @@
         back.addEventListener('click', function (e) { if (e.target === back || e.target.closest('.yq-close')) close(); });
         document.addEventListener('keydown', onKey);
         document.body.appendChild(back);
-        back.querySelector('.yq-close').focus();
+        // Focusing the bottom button scrolls a short landscape dialog past the QR.
+        // Start at the dialog heading; Tab can still reach the close button.
+        back.querySelector('.yq-card').focus({ preventScroll: true });
     }
 
     document.addEventListener('click', function (e) {
         var btn = e.target.closest && e.target.closest('[data-qr]');
         if (!btn) return;
         e.preventDefault();
-        open();
+        open(btn);
     });
     window.YSQr = { open: open };
 })();

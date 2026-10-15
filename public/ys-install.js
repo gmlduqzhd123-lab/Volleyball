@@ -128,28 +128,29 @@
         back = null;
         document.body.style.overflow = previousOverflow;
         document.removeEventListener('keydown', onKey, true);
-        if (lastFocus && lastFocus.focus && document.contains(lastFocus)) lastFocus.focus();
+        if (lastFocus && lastFocus.focus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
     }
     function onKey(e) {
         if (e.key === 'Escape') { e.stopPropagation(); close(); }
         if (e.key === 'Tab' && back) {
             var buttons = back.querySelectorAll('a[href],button');
             var first = buttons[0], last = buttons[buttons.length - 1];
-            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            if (!back.contains(document.activeElement) || document.activeElement === back.querySelector('.ysi-card')) { e.preventDefault(); (e.shiftKey ? last : first).focus(); }
+            else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
             else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
     }
 
-    function showGuide() {
+    function showGuide(trigger) {
         injectCss();
         close();
-        lastFocus = document.activeElement;
+        lastFocus = trigger || document.activeElement;
         previousOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
         var icon = appIcon();
         back = document.createElement('div');
         back.className = 'ysi-back';
-        back.innerHTML = '<div class="ysi-card" role="dialog" aria-modal="true" aria-labelledby="ysi-title">' +
+        back.innerHTML = '<div class="ysi-card" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="ysi-title">' +
             '<div class="ysi-head">' + (icon ? '<img class="ysi-icon" alt="" src="' + icon + '">' : '') +
             '<div><h2 class="ysi-title" id="ysi-title">📲 앱으로 설치하기</h2><p class="ysi-sub"></p></div></div>' +
             guide() +
@@ -160,7 +161,7 @@
         });
         document.body.appendChild(back);
         document.addEventListener('keydown', onKey, true);
-        back.querySelector('[data-ysi-close]').focus();
+        back.querySelector('.ysi-card').focus({ preventScroll: true });
     }
 
     var toastTimer;
@@ -189,17 +190,17 @@
             refresh();
         }
     }
-    async function open() {
+    async function open(trigger) {
         if (busy || installed()) return;
-        if (!deferred) { showGuide(); return; }
-        try { await install(); } catch (_) { showGuide(); }
+        if (!deferred) { showGuide(trigger); return; }
+        try { await install(); } catch (_) { showGuide(trigger); }
     }
 
     document.addEventListener('click', function (e) {
         var btn = e.target.closest && e.target.closest('.install-btn button, [data-ys-install]');
         if (!btn) return;
         e.preventDefault();
-        open();
+        open(btn);
     });
 
     injectCss();

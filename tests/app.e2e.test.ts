@@ -1,3 +1,4 @@
+import { BUILD_URL } from './urls';
 import { test, expect } from "@playwright/test";
 const sample = [
   {
@@ -330,7 +331,7 @@ test("save desktop and mobile preview images", async ({ page }) => {
 });
 
 test("built GitHub Pages subpath direct route and reload", async ({ page }) => {
-  await page.goto("http://127.0.0.1:5174/volleyball/#/positions");
+  await page.goto(`${BUILD_URL}#/positions`);
   await expect(
     page.getByRole("button", { name: "S 세터", exact: true }),
   ).toBeVisible();
@@ -338,7 +339,7 @@ test("built GitHub Pages subpath direct route and reload", async ({ page }) => {
   await expect(
     page.getByRole("button", { name: "선수 1, 앞쪽 배치 예시" }),
   ).toBeVisible();
-  await page.goto("http://127.0.0.1:5174/volleyball/#/skill/dig");
+  await page.goto(`${BUILD_URL}#/skill/dig`);
   await expect(page.locator(".steps li")).toHaveCount(4);
 });
 test("malformed lesson data and failed network recover independently", async ({

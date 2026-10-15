@@ -1,3 +1,4 @@
+import { BUILD_URL } from './urls';
 import { test, expect } from "@playwright/test";
 import { PNG } from "pngjs";
 import jsQR from "jsqr";
@@ -5,7 +6,7 @@ import { readFile } from "node:fs/promises";
 
 const url = "https://gmlduqzhd123-lab.github.io/Volleyball/";
 test("share metadata and approved image are available without JavaScript", async ({ request }) => {
-  const response=await request.get('http://127.0.0.1:5174/volleyball/');
+  const response=await request.get(BUILD_URL);
   expect(response.ok()).toBe(true);
   const html=await response.text();
   expect(html).toContain('property="og:title" content="우리 모두 배구왕 | 배구, 오늘부터 우리 함께!"');
@@ -13,7 +14,7 @@ test("share metadata and approved image are available without JavaScript", async
   expect(html).toContain(`property="og:image" content="${url}social/volleyball-share-v2.png"`);
   expect(html).toContain('property="og:image:width" content="1200"');
   expect(html).toContain('property="og:image:height" content="630"');
-  const image=await request.get('http://127.0.0.1:5174/volleyball/social/volleyball-share-v2.png');
+  const image=await request.get(`${BUILD_URL}social/volleyball-share-v2.png`);
   expect(image.ok()).toBe(true);
   expect(image.headers()['content-type']).toContain('image/png');
   const png=PNG.sync.read(await image.body());
@@ -98,22 +99,22 @@ test("install prompt is single use, dismissal and appinstalled (simulated event)
   await expect(page.locator(".installed-note")).toBeVisible();
 });
 test("built subpath manifest, PNG icons and real service worker offline reload", async ({ page, context }) => {
-  await page.goto("http://127.0.0.1:5174/volleyball/#/home");
+  await page.goto(`${BUILD_URL}#/home`);
   const manifestUrl = await page.locator('link[rel="manifest"]').evaluate((node: HTMLLinkElement) => node.href);
   const manifest = await (await page.request.get(manifestUrl)).json();
   expect(manifest.name).toBe("우리 모두 배구왕");
-  expect(new URL(manifest.start_url, manifestUrl).href).toBe("http://127.0.0.1:5174/volleyball/#/home");
+  expect(new URL(manifest.start_url, manifestUrl).href).toBe(`${BUILD_URL}#/home`);
   for (const icon of manifest.icons) {
     const image = PNG.sync.read(await (await page.request.get(new URL(icon.src, manifestUrl).href)).body());
     expect(`${image.width}x${image.height}`).toBe(icon.sizes);
   }
   await page.evaluate(() => navigator.serviceWorker.ready);
   await expect.poll(() => page.evaluate(() => !!navigator.serviceWorker.controller)).toBe(true);
-  expect(await page.evaluate(async () => (await navigator.serviceWorker.ready).scope)).toBe("http://127.0.0.1:5174/volleyball/");
+  expect(await page.evaluate(async () => (await navigator.serviceWorker.ready).scope)).toBe(BUILD_URL);
   await context.setOffline(true);
   await page.reload();
   await expect(page.getByRole("heading", { name: /처음이어도/ })).toBeVisible();
-  await page.goto("http://127.0.0.1:5174/volleyball/#/skills");
+  await page.goto(`${BUILD_URL}#/skills`);
   await expect(page.locator(".skill-card")).toHaveCount(6);
   await openSharing(page);
   await expect(page.getByAltText("우리 모두 배구왕 공개 사이트 QR코드")).toBeVisible();

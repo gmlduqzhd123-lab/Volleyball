@@ -485,16 +485,17 @@ function Home({
     </>
   );
 }
+type VideoFilters = { search: string; category: string; position: string };
 function Videos({
   resource,
-  pro = false,
+  filters,
+  onFiltersChange,
 }: {
   resource: Resource<Video>;
-  pro?: boolean;
+  filters: VideoFilters;
+  onFiltersChange: React.Dispatch<React.SetStateAction<VideoFilters>>;
 }) {
-  const [search, setSearch] = useState(""),
-    [category, setCategory] = useState(pro ? "pro" : "all"),
-    [position, setPosition] = useState("all");
+  const { search, category, position } = filters;
   const list = filterVideos(
     resource.data,
     search,
@@ -518,7 +519,7 @@ function Videos({
             aria-label="영상 제목 검색"
             placeholder="어떤 영상을 찾고 있나요?"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => onFiltersChange(current => ({ ...current, search: e.target.value }))}
           />
         </label>
         <label className="select-field">
@@ -526,7 +527,7 @@ function Videos({
           <select
             aria-label="포지션 (9인제)"
             value={position}
-            onChange={(e) => setPosition(e.target.value)}
+            onChange={(e) => onFiltersChange(current => ({ ...current, position: e.target.value }))}
           >
             <option value="all">모든 포지션</option>
             {Object.entries(positionNames).map(([id, name]) => (
@@ -545,7 +546,7 @@ function Videos({
                 key={id}
                 className={category === id ? "active" : ""}
                 aria-pressed={category === id}
-                onClick={() => setCategory(id)}
+                onClick={() => onFiltersChange(current => ({ ...current, category: id }))}
               >
                 {name}
               </button>
@@ -564,9 +565,7 @@ function Videos({
             reset={
               filtered
                 ? () => {
-                    setSearch("");
-                    setCategory("all");
-                    setPosition("all");
+                    onFiltersChange({ search: "", category: "all", position: "all" });
                   }
                 : undefined
             }
@@ -578,9 +577,11 @@ function Videos({
 function VideoDetail({
   resource,
   id,
+  listRoute,
 }: {
   resource: Resource<Video>;
   id: string;
+  listRoute: "videos" | "pro";
 }) {
   const [play, setPlay] = useState(false);
   const v = resource.data.find((v) => v.id === id);
@@ -594,12 +595,12 @@ function VideoDetail({
           title="영상을 찾을 수 없어요"
           description="영상이 삭제되었거나 주소가 변경되었을 수 있어요."
         />
-        <LinkButton to="videos">영상 목록으로</LinkButton>
+        <LinkButton to={listRoute}>영상 목록으로</LinkButton>
       </>
     );
   return (
     <>
-      <a className="back" href="#/videos">
+      <a className="back" href={`#/${listRoute}`}>
         <ChevronLeft size={16} />
         영상 목록
       </a>
@@ -1141,6 +1142,8 @@ function Positions({ resource }: { resource: Resource<Position> }) {
   );
 }
 function QuizPage({ resource }: { resource: Resource<Quiz> }) {
+  const quizHeading = useRef<HTMLHeadingElement>(null);
+  const movedThroughQuiz = useRef(false);
   const [answers, setAnswers] = useState<number[]>([]),
     [choice, setChoice] = useState<number | null>(null),
     [submitted, setSubmitted] = useState(false),
@@ -1163,7 +1166,14 @@ function QuizPage({ resource }: { resource: Resource<Quiz> }) {
   }, []);
   const questions = resource.data;
   const q = questions[answers.length];
+  useEffect(() => {
+    if (!movedThroughQuiz.current) return;
+    quizHeading.current?.focus({ preventScroll: true });
+    quizHeading.current?.scrollIntoView({ block: "start", behavior: "instant" });
+  }, [answers.length, finished]);
   function next() {
+    if (!submitted || choice === null || finished) return;
+    movedThroughQuiz.current = true;
     const updated = [...answers, choice!];
     setAnswers(updated);
     setChoice(null);
@@ -1180,6 +1190,7 @@ function QuizPage({ resource }: { resource: Resource<Quiz> }) {
             completedAt: new Date().toISOString(),
           }),
         );
+        setPrevious(`지난 기록 ${quizScore(questions, updated)} / ${questions.length}점`);
       } catch {
         setStorage(
           "기록을 저장하지 못했지만 결과는 아래에서 확인할 수 있어요.",
@@ -1206,7 +1217,7 @@ function QuizPage({ resource }: { resource: Resource<Quiz> }) {
         ) : finished ? (
           <section className="quiz-result">
             <Trophy size={55} />
-            <h2>첫 랠리, 멋지게 완료!</h2>
+            <h2 ref={quizHeading} tabIndex={-1}>첫 랠리, 멋지게 완료!</h2>
             <p className="score">
               {quizScore(questions, answers)}
               <span> / {questions.length}</span>
@@ -1233,6 +1244,7 @@ function QuizPage({ resource }: { resource: Resource<Quiz> }) {
             <button
               className="button"
               onClick={() => {
+                movedThroughQuiz.current = true;
                 setAnswers([]);
                 setChoice(null);
                 setSubmitted(false);
@@ -1259,7 +1271,7 @@ function QuizPage({ resource }: { resource: Resource<Quiz> }) {
                 max={questions.length}
                 aria-label="퀴즈 진행률"
               />
-              <h2>{q.question}</h2>
+              <h2 ref={quizHeading} tabIndex={-1}>{q.question}</h2>
               <div className="quiz-choices">
                 {q.choices.map((c, i) => (
                   <button
@@ -1540,6 +1552,10 @@ function Editor({ videos }: { videos: Resource<Video> }) {
 export default function App() {
   const [route, setRoute] = useState(location.hash.slice(2) || "home"),
     [menu, setMenu] = useState(false);
+  // Keep list controls while visiting a detail or another lesson in this tab.
+  const [videoFilters, setVideoFilters] = useState<VideoFilters>({ search: "", category: "all", position: "all" });
+  const [proFilters, setProFilters] = useState<VideoFilters>({ search: "", category: "pro", position: "all" });
+  const [videoListRoute, setVideoListRoute] = useState<"videos" | "pro">(location.hash === "#/pro" ? "pro" : "videos");
   const main = useRef<HTMLElement>(null);
   const videos = useData<Video>("videos", validateVideos),
     terms = useData<Term>("terms"),
@@ -1549,7 +1565,10 @@ export default function App() {
     rules = useData<Rule>("rules");
   useEffect(() => {
     const update = () => {
-      setRoute(location.hash.slice(2) || "home");
+      const nextRoute = location.hash.slice(2) || "home";
+      setRoute(nextRoute);
+      if (nextRoute === "videos" || nextRoute === "pro") setVideoListRoute(nextRoute);
+      else if (!nextRoute.startsWith("video/")) setVideoListRoute("videos");
       setMenu(false);
       window.scrollTo(0, 0);
       requestAnimationFrame(() => main.current?.focus());
@@ -1558,6 +1577,7 @@ export default function App() {
     return () => window.removeEventListener("hashchange", update);
   }, []);
   const [page, rawId] = route.split("/");
+  const activeMenu = page === "pro" || page === "video" ? "videos" : page === "skill" ? "skills" : page;
   let id = "";
   try {
     id = decodeURIComponent(rawId || "");
@@ -1573,13 +1593,13 @@ export default function App() {
       content = <Home videos={videos} skills={skills} />;
       break;
     case "videos":
-      content = <Videos key="videos" resource={videos} />;
+      content = <Videos key="videos" resource={videos} filters={videoFilters} onFiltersChange={setVideoFilters} />;
       break;
     case "pro":
-      content = <Videos key="pro" resource={videos} pro />;
+      content = <Videos key="pro" resource={videos} filters={proFilters} onFiltersChange={setProFilters} />;
       break;
     case "video":
-      content = <VideoDetail key={id} resource={videos} id={id} />;
+      content = <VideoDetail key={id} resource={videos} id={id} listRoute={videoListRoute} />;
       break;
     case "beginner":
       content = <Beginner terms={terms} rules={rules} />;
@@ -1644,15 +1664,8 @@ export default function App() {
                 key={path}
                 href={`#/${path}`}
                 onClick={() => setMenu(false)}
-                className={
-                  page === path ||
-                  (path === "videos" && page === "pro") ||
-                  (path === "skills" && page === "skill") ||
-                  (path === "videos" && page === "video")
-                    ? "active"
-                    : ""
-                }
-                aria-current={(page === "pro" ? "videos" : page) === path ? "page" : undefined}
+                className={activeMenu === path ? "active" : ""}
+                aria-current={activeMenu === path ? (page === "video" || page === "skill" ? "location" : "page") : undefined}
               >
                 {label}
               </a>

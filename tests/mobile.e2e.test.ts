@@ -1,5 +1,6 @@
+import { APP_URL } from './urls';
 import { test, expect, chromium, webkit, devices } from '@playwright/test';
-const mobileBase = process.env.MOBILE_BASE_URL ?? 'http://127.0.0.1:5173/';
+const mobileBase = process.env.MOBILE_BASE_URL ?? APP_URL;
 
 test('court touch selection survives mobile orientation changes in Chromium and WebKit', async () => {
   test.setTimeout(120000);

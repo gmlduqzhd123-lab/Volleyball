@@ -1,3 +1,4 @@
+import { APP_URL } from './urls';
 import { test, expect } from '@playwright/test';
 
 test('court numbers explain all nine locations on desktop and touch screens', async ({ browser }) => {
@@ -6,7 +7,7 @@ test('court numbers explain all nine locations on desktop and touch screens', as
   for (const width of [1440, 390, 320]) {
     const context = await browser.newContext({ viewport: { width, height: 900 }, hasTouch: width < 600 });
     const page = await context.newPage();
-    await page.goto('http://127.0.0.1:5173/#/positions');
+    await page.goto(`${APP_URL}#/positions`);
     const spots = page.locator('.court-spot');
     const detail = page.locator('#court-position-detail');
     await expect(spots).toHaveCount(9);
